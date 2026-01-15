@@ -1,0 +1,1602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KIDS SCHOOL - AMF English School</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/webp" href="assest/2.webp">
+    <link rel="icon" type="image/png" href="assest/2.webp">
+    <link rel="apple-touch-icon" href="assest/2.webp">
+    <link rel="shortcut icon" href="assest/2.webp">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#A52A2A',
+                        secondary: '#1E3A8A',
+                        accent: '#FF6B35'
+                    },
+                    backgroundImage: {
+                        'red-maroon': 'linear-gradient(135deg, #FF0000 0%, #800000 100%)',
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .ri { font-family: 'remixicon' !important; }
+
+        .card {
+          border-radius: 30px;
+          background: #e0e0e0;
+          box-shadow: 15px 15px 30px #bebebe,
+                     -15px -15px 30px #ffffff;
+        }
+
+        .Btn {
+          width: 140px;
+          height: 40px;
+          border: none;
+          border-radius: 10px;
+          background: linear-gradient(to right,#77530a,#ffd277,#77530a,#77530a,#ffd277,#77530a);
+          background-size: 250%;
+          background-position: left;
+          color: #ffd277;
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          transition-duration: 1s;
+          overflow: hidden;
+        }
+
+        .Btn::before {
+          position: absolute;
+          content: "ENROLL";
+          color: #ffd277;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 97%;
+          height: 90%;
+          border-radius: 8px;
+          transition-duration: 1s;
+          background-color: rgba(0, 0, 0, 0.842);
+          background-size: 200%;
+        }
+
+        .Btn:hover {
+          background-position: right;
+          transition-duration: 1s;
+        }
+
+        .Btn:hover::before {
+          background-position: right;
+          transition-duration: 1s;
+        }
+
+        .Btn:active {
+          transform: scale(0.95);
+        }
+    </style>
+</head>
+<body class="font-sans">
+    <!-- Header/Navbar Section -->
+    <header class="bg-black/20 backdrop-blur shadow-none sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <div class="flex items-center space-x-2">
+                        <i class="ri-graduation-cap-line text-2xl text-primary"></i>
+                    <img src="assest/logo1.jpg" alt="KIDS SCHOOL Logo" class="h-16 w-auto">
+                    </div>
+                </div>
+
+                <!-- Menu Items -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-white hover:text-primary transition duration-300">Home</a>
+                    <a href="#about" class="text-white hover:text-primary transition duration-300">About</a>
+                    <a href="#classes" class="text-white hover:text-primary transition duration-300">Classes</a>
+                    <a href="#courses" class="text-white hover:text-primary transition duration-300">Courses</a>
+                    <a href="#registration" class="text-white hover:text-primary transition duration-300">Registration</a>
+                </div>
+
+                <!-- Right Side Buttons -->
+                <div class="flex items-center">
+                    <a href="tel:+3213200302" class="bg-green-500 text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-green-600 transition duration-300 animate-pulse cursor-pointer flex items-center">
+                        <i class="ri-phone-line mr-2 text-xs"></i>
+                        Call Now: +321 320 0302
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-white hover:text-primary">
+                        <i class="ri-menu-line text-xl"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <div class="flex flex-col space-y-2">
+                    <a href="#home" class="text-white hover:text-primary py-2">Home</a>
+                    <a href="#about" class="text-white hover:text-primary py-2">About</a>
+                    <a href="#classes" class="text-white hover:text-primary py-2">Classes</a>
+                    <a href="#courses" class="text-white hover:text-primary py-2">Courses</a>
+                    <a href="#registration" class="text-white hover:text-primary py-2">Registration</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Admission Modal -->
+    <div id="admissionModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-2xl shadow-md max-w-md w-full max-h-[90vh] overflow-y-auto">
+                <!-- Modal Header -->
+                <div class="bg-red-maroon text-white p-6 rounded-t-2xl">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-xl font-bold">Admission Inquiry</h3>
+                        <button onclick="closeAdmissionModal()" class="text-white hover:text-gray-200 text-2xl">&times;</button>
+                    </div>
+                </div>
+
+                <!-- Modal Body -->
+                <div class="p-6">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="ri-graduation-cap-line text-2xl text-green-600"></i>
+                        </div>
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Admissions are Now Open!</h4>
+                        <p class="text-gray-600">Fill out this form and we'll contact you with all the details.</p>
+                    </div>
+
+                    <form class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                            <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Enter your full name">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                            <input type="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Enter your email">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                            <input type="tel" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Enter your phone number">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Interested Course</label>
+                            <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                                <option>Select a course</option>
+                                <option>General English</option>
+                                <option>Business English</option>
+                                <option>IELTS Preparation</option>
+                                <option>Kids English Program</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Message (Optional)</label>
+                            <textarea rows="3" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Any specific questions or requirements?"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-red-maroon text-white py-3 rounded-lg font-semibold hover:shadow-sm transition-all duration-300 transform hover:-translate-y-1">
+                            Submit Inquiry
+                        </button>
+                    </form>
+
+                    <div class="text-center mt-4 text-sm text-gray-500">
+                        We'll get back to you within 24 hours!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative bg-white py-20 overflow-hidden">
+        <!-- Background Image -->
+        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=1920&h=1080&fit=crop'); opacity: 0.2;"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-center items-center min-h-[500px]">
+                <!-- Center Content -->
+                <div class="text-center space-y-6 max-w-4xl">
+                    <div class="text-sm font-semibold text-primary uppercase tracking-wide text-center">
+                        Affiliated with University of Mid Florida
+                    </div>
+
+                    <h1 class="text-4xl lg:text-5xl xl:text-6xl font-bold text-secondary leading-tight text-center">
+                        The Smarter Way<br>
+                        <span class="text-primary">to Learn English</span>
+                    </h1>
+
+                    <p class="text-xl text-gray-600 leading-relaxed max-w-3xl text-center mx-auto">
+                        Master English the smart way — through interactive lessons, personalized instruction, and real-world practice. Our programs blend modern teaching methods with proven learning techniques to help you gain fluency faster and with confidence.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
+                        <button class="bg-red-maroon text-white px-8 py-3 rounded-lg text-lg font-semibold hover:shadow-sm transition-all duration-300 shadow-sm transform hover:-translate-y-1">
+                            Get Started Today
+                        </button>
+                        <button class="bg-secondary text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-secondary/90 transition duration-300 shadow-sm">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+
+                        </div>
+                    </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-12">
+                <div class="inline-flex items-center justify-center w-20 h-20 bg-primary/10 rounded-full mb-4">
+                    <i class="ri-graduation-cap-line text-3xl text-primary"></i>
+                </div>
+                <h2 class="text-4xl lg:text-6xl font-bold text-secondary mb-6 tracking-tight">
+                    Welcome to AMF English School
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-8"></div>
+                <p class="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-medium">
+                    Empowering learners with the gift of the English language — building confidence, fluency and global competence through structured learning and personalized guidance.
+                </p>
+            </div>
+
+            <!-- Statistics Section -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20">
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-primary mb-2">5000+</div>
+                    <div class="text-gray-600 font-medium">Students Enrolled</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-secondary mb-2">15+</div>
+                    <div class="text-gray-600 font-medium">Expert Teachers</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-accent mb-2">99%</div>
+                    <div class="text-gray-600 font-medium">Success Rate</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-green-600 mb-2">6</div>
+                    <div class="text-gray-600 font-medium">Learning Levels</div>
+                </div>
+            </div>
+
+            <!-- Features Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-20">
+                <!-- Left Column -->
+                <div class="space-y-12">
+                    <!-- Expert Instructors -->
+                    <div class="flex items-start space-x-6">
+                        <div class="flex-shrink-0">
+                            <div class="w-14 h-14 rounded-xl flex items-center justify-center">
+                                <i class="ri-graduation-cap-line text-2xl text-primary"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-secondary mb-3">Expert Instructors</h3>
+                            <p class="text-gray-600 leading-relaxed text-lg text-justify">
+                                Learn from certified teachers dedicated to helping you master English with patience and passion. Our instructors bring years of experience and innovative teaching methodologies.
+                            </p>
+                        </div>
+                        </div>
+
+                    <!-- Global Certification -->
+                    <div class="flex items-start space-x-6">
+                        <div class="flex-shrink-0">
+                            <div class="w-14 h-14 rounded-xl flex items-center justify-center">
+                                <i class="ri-medal-line text-2xl text-green-600"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-secondary mb-3">Global Certification</h3>
+                            <p class="text-gray-600 leading-relaxed text-lg text-justify">
+                                Earn an official certificate of completion at each level — recognized both online and on campus. Our certifications are accredited and valued worldwide.
+                            </p>
+                        </div>
+                    </div>
+                        </div>
+
+                <!-- Right Column -->
+                <div class="space-y-12">
+                    <!-- Structured Learning Tracks -->
+                    <div class="flex items-start space-x-6">
+                        <div class="flex-shrink-0">
+                            <div class="w-14 h-14 rounded-xl flex items-center justify-center">
+                                <i class="ri-route-line text-2xl text-blue-600"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-secondary mb-3">Structured Learning Tracks</h3>
+                            <p class="text-gray-600 leading-relaxed text-lg text-justify">
+                                Six progressive levels (A1–C2) designed according to international English standards. Our curriculum ensures systematic progression and comprehensive skill development.
+                            </p>
+                        </div>
+                        </div>
+
+                    <!-- Student Support & Guidance -->
+                    <div class="flex items-start space-x-6">
+                        <div class="flex-shrink-0">
+                            <div class="w-14 h-14 rounded-xl flex items-center justify-center">
+                                <i class="ri-service-line text-2xl text-accent"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-secondary mb-3">Student Support & Guidance</h3>
+                            <p class="text-gray-600 leading-relaxed text-lg text-justify">
+                                Get personalized feedback, placement tests, and comprehensive study materials. Our dedicated support team ensures you achieve your language learning goals.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                        </div>
+
+            <!-- Professional CTA Section -->
+            <div class="card rounded-3xl p-8 text-center relative overflow-hidden max-w-5xl mx-auto" style="background: #e0e0e0; box-shadow: 15px 15px 30px #bebebe, -15px -15px 30px #ffffff;">
+                <!-- Background Pattern -->
+                <div class="absolute inset-0 opacity-5">
+                    <div class="absolute top-0 left-0 w-32 h-32 bg-primary rounded-full -translate-x-16 -translate-y-16"></div>
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-secondary rounded-full translate-x-12 -translate-y-12"></div>
+                    <div class="absolute bottom-0 left-1/4 w-20 h-20 bg-accent rounded-full translate-y-10"></div>
+                    <div class="absolute bottom-0 right-1/3 w-16 h-16 bg-primary rounded-full translate-y-8"></div>
+                </div>
+
+                <div class="relative z-10">
+                    <h3 class="text-3xl lg:text-4xl font-bold text-secondary mb-4">
+                        Ready to Start Your English Journey?
+                    </h3>
+                    <p class="text-gray-600 text-xl mb-6 max-w-3xl mx-auto leading-relaxed">
+                        Join thousands of successful learners who have transformed their lives through our comprehensive English programs. Take the first step towards fluency today.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <button onclick="openAdmissionModal()" class="bg-red-maroon text-white px-8 py-3 rounded-xl font-bold text-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-105">
+                            <i class="ri-graduation-cap-line mr-2"></i>
+                            Start Learning Now
+                        </button>
+                        <button onclick="openCallbackModal()" class="bg-secondary text-white px-8 py-3 rounded-xl font-bold text-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-105">
+                            <i class="ri-phone-line mr-2"></i>
+                            Free Consultation
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Classes Section -->
+    <section id="classes" class="pt-4 pb-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-20">
+                <div class="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-br from-blue-100 via-blue-50 to-indigo-100 rounded-full shadow-lg mb-6">
+                    <i class="ri-graduation-cap-line text-4xl text-blue-600"></i>
+                    </div>
+                <h2 class="text-5xl lg:text-6xl font-bold text-secondary mb-7 tracking-tight">
+                    Our Classes
+                </h2>
+                <div class="w-32 h-1.5 bg-gradient-to-r from-primary via-accent to-secondary mx-auto mb-10 rounded-full"></div>
+                <p class="text-xl lg:text-xl text-gray-600 max-w-5xl mx-auto leading-relaxed font-medium">
+                    Unlock your potential through structured, engaging and internationally recognized English programs. Whether you're just beginning or aiming for mastery, our courses are designed to help you communicate confidently and fluently.
+                </p>
+                </div>
+
+            <!-- Level Progression Indicator -->
+            <div class="flex justify-center mb-16">
+                <div class="flex items-center space-x-2 bg-white px-8 py-4 rounded-2xl shadow-lg border border-gray-100">
+                    <div class="flex items-center space-x-1">
+                        <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                        <span class="text-sm font-semibold text-gray-600">Foundation</span>
+            </div>
+                    <div class="w-8 h-0.5 bg-gray-300"></div>
+                    <div class="flex items-center space-x-1">
+                        <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+                        <span class="text-sm font-semibold text-gray-600">Intermediate</span>
+                    </div>
+                    <div class="w-8 h-0.5 bg-gray-300"></div>
+                    <div class="flex items-center space-x-1">
+                        <div class="w-3 h-3 bg-purple-500 rounded-full"></div>
+                        <span class="text-sm font-semibold text-gray-600">Advanced</span>
+                    </div>
+                    <div class="w-8 h-0.5 bg-gray-300"></div>
+                    <div class="flex items-center space-x-1">
+                        <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                        <span class="text-sm font-semibold text-gray-600">Mastery</span>
+                    </div>
+        </div>
+    </div>
+
+            <!-- Classes Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                <!-- A1 Beginner -->
+                <div class="group relative bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border border-gray-200 overflow-hidden">
+                    <!-- Background Gradient Overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-green-50 to-emerald-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                    <!-- Level Ribbon -->
+                    <div class="absolute top-4 right-4 bg-gradient-to-r from-green-500 to-emerald-600 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
+                        A1
+                    </div>
+
+                    <div class="relative p-10">
+                        <!-- Level Badge & Icon -->
+                        <div class="flex items-center mb-8">
+                            <div class="w-16 h-16 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                <i class="ri-seedling-line text-3xl text-green-600"></i>
+                            </div>
+                            <div class="ml-4">
+                                <div class="text-sm font-semibold text-green-600 uppercase tracking-wide">Foundation Level</div>
+                                <h3 class="text-3xl font-bold text-secondary">Beginner</h3>
+                            </div>
+                        </div>
+
+                        <!-- Description -->
+                        <p class="text-gray-700 mb-8 leading-relaxed text-lg">
+                            Can understand and use basic phrases and very common expressions. Perfect for complete beginners taking their first steps in English.
+                        </p>
+
+                        <!-- Progress Bar -->
+                        <div class="mb-8">
+                            <div class="flex justify-between text-sm text-gray-600 mb-2">
+                                <span>Difficulty Level</span>
+                                <span>Beginner</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-green-400 to-emerald-500 h-2 rounded-full w-1/6"></div>
+                            </div>
+                        </div>
+
+                        <!-- Features -->
+                        <div class="space-y-3 mb-10">
+                            <div class="flex items-center text-gray-700">
+                                <div class="w-5 h-5 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                                    <i class="ri-check-line text-green-600 text-xs"></i>
+                                </div>
+                                <span class="font-medium">Basic vocabulary & phrases</span>
+                            </div>
+                            <div class="flex items-center text-gray-700">
+                                <div class="w-5 h-5 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                                    <i class="ri-check-line text-green-600 text-xs"></i>
+                                </div>
+                                <span class="font-medium">Simple conversations</span>
+                            </div>
+                            <div class="flex items-center text-gray-700">
+                                <div class="w-5 h-5 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                                    <i class="ri-check-line text-green-600 text-xs"></i>
+                                </div>
+                                <span class="font-medium">8-week intensive program</span>
+                            </div>
+                        </div>
+
+                        <!-- CTA Button -->
+                        <button onclick="openAdmissionModal()" class="Btn">
+                            <i class="ri-user-add-line mr-2"></i>
+                            ENROLL
+                        </button>
+                    </div>
+                </div>
+
+                <!-- A2 Beginner -->
+                <div class="group relative bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border border-gray-200 overflow-hidden">
+                    <!-- Background Gradient Overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-blue-50 to-cyan-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                    <!-- Level Ribbon -->
+                    <div class="absolute top-4 right-4 bg-gradient-to-r from-blue-500 to-cyan-600 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
+                        A2
+                    </div>
+
+                    <div class="relative p-10">
+                        <!-- Level Badge & Icon -->
+                        <div class="flex items-center mb-8">
+                            <div class="w-16 h-16 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                <i class="ri-water-flash-line text-3xl text-blue-600"></i>
+                            </div>
+                            <div class="ml-4">
+                                <div class="text-sm font-semibold text-blue-600 uppercase tracking-wide">Foundation Level</div>
+                                <h3 class="text-3xl font-bold text-secondary">Elementary</h3>
+                            </div>
+                        </div>
+
+                        <!-- Description -->
+                        <p class="text-gray-700 mb-8 leading-relaxed text-lg">
+                            Can handle routine situations and make themselves understood in simple exchanges, discussing daily activities and familiar topics.
+                        </p>
+
+                        <!-- Progress Bar -->
+                        <div class="mb-8">
+                            <div class="flex justify-between text-sm text-gray-600 mb-2">
+                                <span>Difficulty Level</span>
+                                <span>Elementary</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-blue-400 to-cyan-500 h-2 rounded-full w-2/6"></div>
+                            </div>
+                        </div>
+
+                        <!-- Features -->
+                        <div class="space-y-3 mb-10">
+                            <div class="flex items-center text-gray-700">
+                                <div class="w-5 h-5 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                                    <i class="ri-check-line text-blue-600 text-xs"></i>
+                                </div>
+                                <span class="font-medium">Daily conversations</span>
+                            </div>
+                            <div class="flex items-center text-gray-700">
+                                <div class="w-5 h-5 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                                    <i class="ri-check-line text-blue-600 text-xs"></i>
+                                </div>
+                                <span class="font-medium">Routine situations</span>
+                            </div>
+                            <div class="flex items-center text-gray-700">
+                                <div class="w-5 h-5 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                                    <i class="ri-check-line text-blue-600 text-xs"></i>
+                                </div>
+                                <span class="font-medium">10-week intensive program</span>
+                            </div>
+                        </div>
+
+                        <!-- CTA Button -->
+                        <button onclick="openAdmissionModal()" class="Btn">
+                            <i class="ri-user-add-line mr-2"></i>
+                            ENROLL
+                        </button>
+                    </div>
+                </div>
+
+                <!-- B1 Intermediate -->
+                <div class="group relative bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border border-gray-200 overflow-hidden">
+                    <!-- Background Gradient Overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-purple-50 to-violet-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                    <!-- Level Ribbon -->
+                    <div class="absolute top-4 right-4 bg-gradient-to-r from-purple-500 to-violet-600 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
+                        B1
+            </div>
+
+                    <div class="relative p-10">
+                        <!-- Level Badge & Icon -->
+                        <div class="flex items-center mb-8">
+                            <div class="w-16 h-16 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                <i class="ri-plane-line text-3xl text-purple-600"></i>
+        </div>
+                            <div class="ml-4">
+                                <div class="text-sm font-semibold text-purple-600 uppercase tracking-wide">Intermediate Level</div>
+                                <h3 class="text-3xl font-bold text-secondary">Intermediate</h3>
+                            </div>
+                        </div>
+
+                        <!-- Description -->
+                        <p class="text-gray-700 mb-8 leading-relaxed text-lg">
+                            Can understand familiar topics and communicate in most situations while traveling. Ready for intermediate conversations and travel scenarios.
+                        </p>
+
+                        <!-- Progress Bar -->
+                        <div class="mb-8">
+                            <div class="flex justify-between text-sm text-gray-600 mb-2">
+                                <span>Difficulty Level</span>
+                                <span>Intermediate</span>
+            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-purple-400 to-violet-500 h-2 rounded-full w-3/6"></div>
+                            </div>
+                        </div>
+
+                        <!-- Features -->
+                        <div class="space-y-3 mb-10">
+                            <div class="flex items-center text-gray-700">
+                                <div class="w-5 h-5 bg-purple-100 rounded-full flex items-center justify-center mr-3">
+                                    <i class="ri-check-line text-purple-600 text-xs"></i>
+                                </div>
+                                <span class="font-medium">Travel conversations</span>
+                            </div>
+                            <div class="flex items-center text-gray-700">
+                                <div class="w-5 h-5 bg-purple-100 rounded-full flex items-center justify-center mr-3">
+                                    <i class="ri-check-line text-purple-600 text-xs"></i>
+                                </div>
+                                <span class="font-medium">Work situations</span>
+                            </div>
+                            <div class="flex items-center text-gray-700">
+                                <div class="w-5 h-5 bg-purple-100 rounded-full flex items-center justify-center mr-3">
+                                    <i class="ri-check-line text-purple-600 text-xs"></i>
+                                </div>
+                                <span class="font-medium">12-week intensive program</span>
+                            </div>
+                        </div>
+
+                        <!-- CTA Button -->
+                        <button onclick="openAdmissionModal()" class="Btn">
+                            <i class="ri-user-add-line mr-2"></i>
+                            ENROLL
+                        </button>
+                    </div>
+                </div>
+
+                <!-- B2 Upper Intermediate -->
+                <div class="group relative bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border border-gray-200 overflow-hidden">
+                    <!-- Background Gradient Overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-red-50 to-pink-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                    <!-- Level Ribbon -->
+                    <div class="absolute top-4 right-4 bg-gradient-to-r from-red-500 to-pink-600 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
+                        B2
+                    </div>
+
+                    <div class="relative p-10">
+                        <!-- Level Badge & Icon -->
+                        <div class="flex items-center mb-8">
+                            <div class="w-16 h-16 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                <i class="ri-star-line text-3xl text-red-600"></i>
+                            </div>
+                            <div class="ml-4">
+                                <div class="text-sm font-semibold text-red-600 uppercase tracking-wide">Advanced Level</div>
+                                <h3 class="text-3xl font-bold text-secondary">Upper Intermediate</h3>
+                            </div>
+                        </div>
+
+                        <!-- Description -->
+                        <p class="text-gray-700 mb-8 leading-relaxed text-lg">
+                            Can understand complex texts, interact with fluency, and write clear, detailed texts. Advanced level for professional and academic communication.
+                        </p>
+
+                        <!-- Progress Bar -->
+                        <div class="mb-8">
+                            <div class="flex justify-between text-sm text-gray-600 mb-2">
+                                <span>Difficulty Level</span>
+                                <span>Upper Intermediate</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-red-400 to-pink-500 h-2 rounded-full w-4/6"></div>
+                            </div>
+                        </div>
+
+                        <!-- Features -->
+                        <div class="space-y-3 mb-10">
+                            <div class="flex items-center text-gray-700">
+                                <div class="w-5 h-5 bg-red-100 rounded-full flex items-center justify-center mr-3">
+                                    <i class="ri-check-line text-red-600 text-xs"></i>
+                                </div>
+                                <span class="font-medium">Complex discussions</span>
+                            </div>
+                            <div class="flex items-center text-gray-700">
+                                <div class="w-5 h-5 bg-red-100 rounded-full flex items-center justify-center mr-3">
+                                    <i class="ri-check-line text-red-600 text-xs"></i>
+                                </div>
+                                <span class="font-medium">Academic writing</span>
+                            </div>
+                            <div class="flex items-center text-gray-700">
+                                <div class="w-5 h-5 bg-red-100 rounded-full flex items-center justify-center mr-3">
+                                    <i class="ri-check-line text-red-600 text-xs"></i>
+                                </div>
+                                <span class="font-medium">14-week intensive program</span>
+                            </div>
+                        </div>
+
+                        <!-- CTA Button -->
+                        <button onclick="openAdmissionModal()" class="Btn">
+                            <i class="ri-user-add-line mr-2"></i>
+                            ENROLL
+                        </button>
+                    </div>
+                </div>
+
+                <!-- C1 Advanced -->
+                <div class="group relative bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border border-gray-200 overflow-hidden">
+                    <!-- Background Gradient Overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-indigo-50 to-purple-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                    <!-- Level Ribbon -->
+                    <div class="absolute top-4 right-4 bg-gradient-to-r from-indigo-500 to-purple-600 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
+                        C1
+                    </div>
+
+                    <div class="relative p-10">
+                        <!-- Level Badge & Icon -->
+                        <div class="flex items-center mb-8">
+                            <div class="w-16 h-16 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                <i class="ri-rocket-line text-3xl text-indigo-600"></i>
+                            </div>
+                            <div class="ml-4">
+                                <div class="text-sm font-semibold text-indigo-600 uppercase tracking-wide">Advanced Level</div>
+                                <h3 class="text-3xl font-bold text-secondary">Advanced</h3>
+                            </div>
+                        </div>
+
+                        <!-- Description -->
+                        <p class="text-gray-700 mb-8 leading-relaxed text-lg">
+                            Can understand a wide range of complex texts and express themselves fluently and spontaneously. Advanced proficiency for complex academic and professional contexts.
+                        </p>
+
+                        <!-- Progress Bar -->
+                        <div class="mb-8">
+                            <div class="flex justify-between text-sm text-gray-600 mb-2">
+                                <span>Difficulty Level</span>
+                                <span>Advanced</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-indigo-400 to-purple-500 h-2 rounded-full w-5/6"></div>
+                            </div>
+                        </div>
+
+                        <!-- Features -->
+                        <div class="space-y-3 mb-10">
+                            <div class="flex items-center text-gray-700">
+                                <div class="w-5 h-5 bg-indigo-100 rounded-full flex items-center justify-center mr-3">
+                                    <i class="ri-check-line text-indigo-600 text-xs"></i>
+                                </div>
+                                <span class="font-medium">Complex discussions</span>
+                            </div>
+                            <div class="flex items-center text-gray-700">
+                                <div class="w-5 h-5 bg-indigo-100 rounded-full flex items-center justify-center mr-3">
+                                    <i class="ri-check-line text-indigo-600 text-xs"></i>
+                                </div>
+                                <span class="font-medium">Academic presentations</span>
+                            </div>
+                            <div class="flex items-center text-gray-700">
+                                <div class="w-5 h-5 bg-indigo-100 rounded-full flex items-center justify-center mr-3">
+                                    <i class="ri-check-line text-indigo-600 text-xs"></i>
+                                </div>
+                                <span class="font-medium">16-week intensive program</span>
+                            </div>
+                        </div>
+
+                        <!-- CTA Button -->
+                        <button onclick="openAdmissionModal()" class="Btn">
+                            <i class="ri-user-add-line mr-2"></i>
+                            ENROLL
+                        </button>
+                    </div>
+                </div>
+
+                <!-- C2 Proficient/Mastery -->
+                <div class="group relative bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border border-gray-200 overflow-hidden">
+                    <!-- Background Gradient Overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-yellow-50 to-orange-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                    <!-- Level Ribbon -->
+                    <div class="absolute top-4 right-4 bg-gradient-to-r from-yellow-500 to-orange-600 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
+                        C2
+                    </div>
+
+                    <div class="relative p-10">
+                        <!-- Level Badge & Icon -->
+                        <div class="flex items-center mb-8">
+                            <div class="w-16 h-16 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                <i class="ri-crown-line text-3xl text-yellow-600"></i>
+                            </div>
+                            <div class="ml-4">
+                                <div class="text-sm font-semibold text-yellow-600 uppercase tracking-wide">Mastery Level</div>
+                                <h3 class="text-3xl font-bold text-secondary">Proficient/Mastery</h3>
+                            </div>
+                        </div>
+
+                        <!-- Description -->
+                        <p class="text-gray-700 mb-8 leading-relaxed text-lg">
+                            Has mastery of the language, understanding implicit meaning, speaking with precision, and using the language effectively in almost any situation. Native-like fluency.
+                        </p>
+
+                        <!-- Progress Bar -->
+                        <div class="mb-8">
+                            <div class="flex justify-between text-sm text-gray-600 mb-2">
+                                <span>Difficulty Level</span>
+                                <span>Mastery</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-yellow-400 to-orange-500 h-2 rounded-full w-full"></div>
+                            </div>
+                        </div>
+
+                        <!-- Features -->
+                        <div class="space-y-3 mb-10">
+                            <div class="flex items-center text-gray-700">
+                                <div class="w-5 h-5 bg-yellow-100 rounded-full flex items-center justify-center mr-3">
+                                    <i class="ri-check-line text-yellow-600 text-xs"></i>
+                                </div>
+                                <span class="font-medium">Native-like fluency</span>
+                            </div>
+                            <div class="flex items-center text-gray-700">
+                                <div class="w-5 h-5 bg-yellow-100 rounded-full flex items-center justify-center mr-3">
+                                    <i class="ri-check-line text-yellow-600 text-xs"></i>
+                                </div>
+                                <span class="font-medium">Professional expertise</span>
+                            </div>
+                            <div class="flex items-center text-gray-700">
+                                <div class="w-5 h-5 bg-yellow-100 rounded-full flex items-center justify-center mr-3">
+                                    <i class="ri-check-line text-yellow-600 text-xs"></i>
+                                </div>
+                                <span class="font-medium">18-week intensive program</span>
+                            </div>
+                        </div>
+
+                        <!-- CTA Button -->
+                        <button onclick="openAdmissionModal()" class="Btn">
+                            <i class="ri-user-add-line mr-2"></i>
+                            ENROLL
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional CTA Section -->
+            <div class="mt-24 text-center">
+                <div class="card relative rounded-3xl p-6 overflow-hidden max-w-4xl mx-auto" style="background: #f5f5f5; box-shadow: 15px 15px 30px #bebebe, -15px -15px 30px #ffffff;">
+
+                    <div class="relative z-10">
+                        <h3 class="text-3xl lg:text-4xl font-bold text-secondary mb-3">
+                            Not Sure Which Level is Right for You?
+                        </h3>
+                        <p class="text-gray-600 text-lg mb-4 max-w-3xl mx-auto leading-relaxed">
+                            Take our free placement test to determine your current English level and get personalized recommendations for your learning journey.
+                        </p>
+                        <div class="flex flex-col lg:flex-row gap-4 justify-center">
+                            <button onclick="openAdmissionModal()" class="bg-red-maroon text-white px-8 py-3 rounded-2xl font-bold text-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 hover:scale-105">
+                                <i class="ri-clipboard-line mr-2 text-base"></i>
+                                Take Free Placement Test
+                            </button>
+                            <a href="tel:+3213200302" class="bg-secondary text-white px-8 py-3 rounded-2xl font-bold text-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 text-center">
+                                <i class="ri-phone-line mr-2 text-base"></i>
+                                Call for Free Consultation
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses" class="pt-4 pb-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-20">
+                <div class="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl shadow-lg mb-8">
+                    <i class="ri-book-open-line text-4xl text-white"></i>
+                </div>
+                <h2 class="text-5xl lg:text-6xl font-bold mb-8 tracking-tight" style="color: #1e3a8a;">
+                    Find Your Course
+                </h2>
+                <div class="w-32 h-1.5 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 mx-auto mb-10 rounded-full"></div>
+                <p class="text-xl lg:text-xl text-gray-700 max-w-5xl mx-auto leading-relaxed font-medium">
+                    Empower your future with our English language programs—available online and on campus. Whether you're starting from the basics or aiming for full fluency, our certified courses help you master English with confidence and competence.
+                </p>
+            </div>
+
+            <!-- Courses Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+                <!-- A1 Beginner Course -->
+                <div class="group relative bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border border-indigo-100 overflow-hidden">
+                    <!-- Background Gradient Overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-indigo-50 to-blue-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                    <!-- Level Badge -->
+                    <div class="absolute top-6 right-6 bg-gradient-to-r from-indigo-500 to-blue-600 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg z-10">
+                        A1
+                    </div>
+
+                    <div class="relative p-8">
+                        <!-- Course Header -->
+                        <div class="flex items-center mb-6">
+                            <div class="w-14 h-14 rounded-2xl flex items-center justify-center mr-4">
+                                <i class="ri-seedling-line text-3xl text-indigo-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-indigo-600">Beginner</h3>
+                                <p class="text-sm text-gray-500 font-medium">Foundation Level</p>
+                            </div>
+                        </div>
+
+                        <!-- Description -->
+                        <p class="text-gray-700 mb-8 leading-relaxed text-lg">
+                            Build your foundation with simple phrases and everyday expressions.
+                        </p>
+
+                        <!-- Location Info -->
+                        <div class="bg-indigo-50 rounded-2xl p-6 mb-8 border border-indigo-100">
+                            <div class="flex items-start space-x-3">
+                                <div class="w-8 h-8 bg-indigo-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                    <i class="ri-map-pin-line text-indigo-600"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-indigo-600 font-semibold mb-1">Location</p>
+                                    <p class="text-gray-700 text-sm leading-relaxed">
+                                        4307 Vineland Road, H-12<br>
+                                        Orlando, FL, United States, Florida
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Branding -->
+                        <div class="flex items-center justify-between mb-8">
+                            <div class="flex items-center space-x-2">
+                                <div class="w-8 h-8 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center">
+                                    <span class="text-white font-bold text-sm">A</span>
+                                </div>
+                                <span class="text-indigo-600 font-bold text-lg">AMF</span>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-2xl font-bold text-indigo-600">$299</div>
+                                <div class="text-sm text-gray-500">per course</div>
+                            </div>
+                        </div>
+
+                        <!-- CTA Button -->
+                        <button onclick="openAdmissionModal()" class="Btn">
+                            <i class="ri-user-add-line mr-2"></i>
+                            ENROLL
+                        </button>
+                    </div>
+                </div>
+
+                <!-- B1 Intermediate Course -->
+                <div class="group relative bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border border-purple-100 overflow-hidden">
+                    <!-- Background Gradient Overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-purple-50 to-pink-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                    <!-- Level Badge -->
+                    <div class="absolute top-6 right-6 bg-gradient-to-r from-purple-500 to-pink-600 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg z-10">
+                        B1
+                    </div>
+
+                    <div class="relative p-8">
+                        <!-- Course Header -->
+                        <div class="flex items-center mb-6">
+                            <div class="w-14 h-14 rounded-2xl flex items-center justify-center mr-4">
+                                <i class="ri-plane-line text-3xl text-purple-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-purple-600">Intermediate</h3>
+                                <p class="text-sm text-gray-500 font-medium">Progression Level</p>
+                            </div>
+                        </div>
+
+                        <!-- Description -->
+                        <p class="text-gray-700 mb-8 leading-relaxed text-lg">
+                            Gain confidence handling conversations while traveling or working.
+                        </p>
+
+                        <!-- Location Info -->
+                        <div class="bg-purple-50 rounded-2xl p-6 mb-8 border border-purple-100">
+                            <div class="flex items-start space-x-3">
+                                <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                    <i class="ri-map-pin-line text-purple-600"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-purple-600 font-semibold mb-1">Location</p>
+                                    <p class="text-gray-700 text-sm leading-relaxed">
+                                        4307 Vineland Road, H-12<br>
+                                        Orlando, FL, United States, Florida
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Branding -->
+                        <div class="flex items-center justify-between mb-8">
+                            <div class="flex items-center space-x-2">
+                                <div class="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-600 rounded-lg flex items-center justify-center">
+                                    <span class="text-white font-bold text-sm">A</span>
+                                </div>
+                                <span class="text-purple-600 font-bold text-lg">AMF</span>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-2xl font-bold text-purple-600">$399</div>
+                                <div class="text-sm text-gray-500">per course</div>
+                            </div>
+                        </div>
+
+                        <!-- CTA Button -->
+                        <button onclick="openAdmissionModal()" class="Btn">
+                            <i class="ri-user-add-line mr-2"></i>
+                            ENROLL
+                        </button>
+                    </div>
+                </div>
+
+                <!-- C1 Advanced Course -->
+                <div class="group relative bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border border-pink-100 overflow-hidden">
+                    <!-- Background Gradient Overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-pink-50 to-rose-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                    <!-- Level Badge -->
+                    <div class="absolute top-6 right-6 bg-gradient-to-r from-pink-500 to-rose-600 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg z-10">
+                        C1
+                    </div>
+
+                    <div class="relative p-8">
+                        <!-- Course Header -->
+                        <div class="flex items-center mb-6">
+                            <div class="w-14 h-14 rounded-2xl flex items-center justify-center mr-4">
+                                <i class="ri-rocket-line text-3xl text-pink-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-pink-600">Advanced</h3>
+                                <p class="text-sm text-gray-500 font-medium">Mastery Level</p>
+                            </div>
+                        </div>
+
+                        <!-- Description -->
+                        <p class="text-gray-700 mb-8 leading-relaxed text-lg">
+                            Express yourself naturally and understand detailed, complex texts.
+                        </p>
+
+                        <!-- Location Info -->
+                        <div class="bg-pink-50 rounded-2xl p-6 mb-8 border border-pink-100">
+                            <div class="flex items-start space-x-3">
+                                <div class="w-8 h-8 bg-pink-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                    <i class="ri-map-pin-line text-pink-600"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-pink-600 font-semibold mb-1">Location</p>
+                                    <p class="text-gray-700 text-sm leading-relaxed">
+                                        4307 Vineland Road, H-12<br>
+                                        Orlando, FL, United States, Florida
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Branding -->
+                        <div class="flex items-center justify-between mb-8">
+                            <div class="flex items-center space-x-2">
+                                <div class="w-8 h-8 bg-gradient-to-r from-pink-500 to-rose-600 rounded-lg flex items-center justify-center">
+                                    <span class="text-white font-bold text-sm">A</span>
+                                </div>
+                                <span class="text-pink-600 font-bold text-lg">AMF</span>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-2xl font-bold text-pink-600">$499</div>
+                                <div class="text-sm text-gray-500">per course</div>
+                            </div>
+                        </div>
+
+                        <!-- CTA Button -->
+                        <button onclick="openAdmissionModal()" class="Btn">
+                            <i class="ri-user-add-line mr-2"></i>
+                            ENROLL
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course Features -->
+            <div class="bg-white rounded-3xl p-12 shadow-xl border border-gray-100">
+                <div class="text-center mb-12">
+                    <h3 class="text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
+                        Why Choose Our Courses?
+                    </h3>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                        Our certified English programs combine traditional teaching with modern methodology for optimal learning outcomes.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Feature 1 -->
+                    <div class="card text-center group py-4">
+                        <div class="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-2 group-hover:scale-110 transition-transform duration-300">
+                            <i class="ri-global-line text-3xl text-indigo-600"></i>
+                    </div>
+                        <h4 class="text-xl font-bold text-gray-800 mb-1">Online & On-Campus</h4>
+                        <p class="text-gray-600 text-sm">Flexible learning options to fit your schedule</p>
+                </div>
+
+                <!-- Feature 2 -->
+                    <div class="card text-center group py-4">
+                        <div class="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-2 group-hover:scale-110 transition-transform duration-300">
+                            <i class="ri-medal-line text-3xl text-purple-600"></i>
+                    </div>
+                        <h4 class="text-xl font-bold text-gray-800 mb-1">Certified Programs</h4>
+                        <p class="text-gray-600 text-sm">Internationally recognized certifications</p>
+                </div>
+
+                <!-- Feature 3 -->
+                    <div class="card text-center group py-4">
+                        <div class="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-2 group-hover:scale-110 transition-transform duration-300">
+                            <i class="ri-user-star-line text-3xl text-pink-600"></i>
+                    </div>
+                        <h4 class="text-xl font-bold text-gray-800 mb-1">Expert Instructors</h4>
+                        <p class="text-gray-600 text-sm">Qualified teachers with years of experience</p>
+                </div>
+
+                <!-- Feature 4 -->
+                    <div class="card text-center group py-4">
+                        <div class="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-2 group-hover:scale-110 transition-transform duration-300">
+                            <i class="ri-time-line text-3xl text-red-600"></i>
+                    </div>
+                        <h4 class="text-xl font-bold text-gray-800 mb-1">Flexible Schedule</h4>
+                        <p class="text-gray-600 text-sm">Classes designed around your availability</p>
+                </div>
+
+                    <!-- New Feature 5 -->
+                    <div class="card text-center group py-4">
+                        <div class="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-2 group-hover:scale-110 transition-transform duration-300">
+                            <i class="ri-shield-line text-3xl text-green-600"></i>
+            </div>
+                        <h4 class="text-xl font-bold text-gray-800 mb-1">Safe Environment</h4>
+                        <p class="text-gray-600 text-sm">Secure and nurturing atmosphere where children can learn and grow without worries.</p>
+        </div>
+
+                    <!-- New Feature 6 -->
+                    <div class="card text-center group py-4">
+                        <div class="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-2 group-hover:scale-110 transition-transform duration-300">
+                            <i class="ri-user-star-line text-3xl text-blue-600"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-800 mb-1">Experienced Faculty</h4>
+                        <p class="text-gray-600 text-sm">Certified teachers with years of experience in early childhood education.</p>
+            </div>
+
+                    <!-- New Feature 7 -->
+                    <div class="card text-center group py-4">
+                        <div class="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-2 group-hover:scale-110 transition-transform duration-300">
+                            <i class="ri-computer-line text-3xl text-purple-600"></i>
+                    </div>
+                        <h4 class="text-xl font-bold text-gray-800 mb-1">Digital Classrooms</h4>
+                        <p class="text-gray-600 text-sm">Modern classrooms equipped with smart boards and interactive learning tools.</p>
+                </div>
+
+                    <!-- New Feature 8 -->
+                    <div class="card text-center group py-4">
+                        <div class="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-2 group-hover:scale-110 transition-transform duration-300">
+                            <i class="ri-palette-line text-3xl text-yellow-600"></i>
+                    </div>
+                        <h4 class="text-xl font-bold text-gray-800 mb-1">Co-curricular Activities</h4>
+                        <p class="text-gray-600 text-sm">Art, music, sports, and creative activities to develop well-rounded personalities.</p>
+                </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Registration Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <!-- Left Content -->
+                <div class="space-y-4">
+                    <div class="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-xl shadow-lg">
+                        <i class="ri-graduation-cap-line text-2xl text-white"></i>
+                    </div>
+
+                    <div>
+                        <h2 class="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent mb-3">
+                            Join Our English Learning Community
+                        </h2>
+                        <p class="text-lg text-gray-700 leading-relaxed">
+                            Take the first step towards mastering English! Our expert instructors and personalized curriculum will help you achieve your language goals.
+                        </p>
+                </div>
+
+                    <!-- Features List -->
+                    <div class="space-y-2">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
+                                <i class="ri-check-line text-green-600 text-sm"></i>
+                            </div>
+                            <span class="text-base text-gray-700 font-medium">Free placement assessment</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center">
+                                <i class="ri-check-line text-blue-600 text-sm"></i>
+                            </div>
+                            <span class="text-base text-gray-700 font-medium">Personalized learning path</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center">
+                                <i class="ri-check-line text-purple-600 text-sm"></i>
+                            </div>
+                            <span class="text-base text-gray-700 font-medium">Expert instructor support</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="w-6 h-6 bg-pink-100 rounded-full flex items-center justify-center">
+                                <i class="ri-check-line text-pink-600 text-sm"></i>
+                            </div>
+                            <span class="text-base text-gray-700 font-medium">Flexible scheduling</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Form -->
+                <div class="bg-white rounded-2xl shadow-xl p-6 border border-gray-100">
+                    <div class="text-center mb-4">
+                        <div class="w-14 h-14 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center mx-auto mb-3 shadow-lg">
+                            <i class="ri-user-add-line text-2xl text-white"></i>
+                    </div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-2">Start Your Journey Today</h3>
+                        <p class="text-sm text-gray-600">Fill out the form and our team will contact you within 24 hours</p>
+                </div>
+
+                    <form id="registrationForm" class="space-y-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-1">First Name</label>
+                                <input type="text" name="firstName" class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300" placeholder="First name" required>
+                    </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-1">Last Name</label>
+                                <input type="text" name="lastName" class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300" placeholder="Last name" required>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-1">Email Address</label>
+                            <input type="email" name="email" class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300" placeholder="Enter your email" required>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-1">Phone Number</label>
+                            <input type="tel" name="phone" class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300" placeholder="Enter phone number" required>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-1">Current English Level</label>
+                            <select name="englishLevel" class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300" required>
+                                <option value="">Select your level</option>
+                                <option value="beginner">Beginner (A1)</option>
+                                <option value="elementary">Elementary (A2)</option>
+                                <option value="intermediate">Intermediate (B1)</option>
+                                <option value="upper-intermediate">Upper Intermediate (B2)</option>
+                                <option value="advanced">Advanced (C1)</option>
+                                <option value="proficient">Proficient (C2)</option>
+                                <option value="not-sure">Not sure</option>
+                            </select>
+                        </div>
+
+
+                        <button type="submit" class="w-full bg-gradient-to-r from-primary to-secondary text-white py-3 px-6 rounded-lg font-semibold text-base hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5">
+                            <i class="ri-send-plane-line mr-2"></i>
+                            Register Now
+                        </button>
+                    </form>
+
+                    <div class="text-center mt-3">
+                        <p class="text-xs text-gray-500">
+                            By registering, you agree to our terms.
+                            <span class="text-primary font-medium block">No spam, ever!</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call To Action Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl lg:text-5xl font-bold text-secondary mb-6">
+                Give Your Child the Best Start
+            </h2>
+            <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+                Join our community of happy learners and watch your child thrive in a nurturing, educational environment designed for their growth and development.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="bg-red-maroon text-white px-8 py-4 rounded-lg text-lg font-semibold hover:shadow-sm transition-all duration-300 shadow-sm transform hover:-translate-y-1">
+                    Enroll Now
+                </button>
+                <button class="bg-secondary text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-secondary/90 transition duration-300 shadow-sm">
+                    Contact Us
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer id="contact" class="relative text-white py-16" style="background-image: url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1920&h=1080&fit=crop'); background-size: cover; background-position: center; background-attachment: fixed;">
+        <!-- Dark Overlay for Readability -->
+        <div class="absolute inset-0 bg-black bg-opacity-70"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+                <!-- About -->
+                <div>
+                    <div class="mb-4">
+                        <img src="assest/logo1.jpg" alt="KIDS SCHOOL Logo" class="h-16 w-auto">
+                    </div>
+                    <p class="text-gray-300 mb-4">
+                        Empowering young minds with quality education, creativity, and confidence for a brighter future.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/people/AMF-English-School/100084678438110/" target="_blank" class="text-gray-300 hover:text-primary transition duration-300">
+                            <i class="fab fa-facebook text-xl"></i>
+                        </a>
+                        <a href="https://www.instagram.com/amfenglishschool/" target="_blank" class="text-gray-300 hover:text-primary transition duration-300">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-primary transition duration-300">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-primary transition duration-300">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-300 hover:text-primary transition duration-300">Home</a></li>
+                        <li><a href="#about" class="text-gray-300 hover:text-primary transition duration-300">About</a></li>
+                        <li><a href="#classes" class="text-gray-300 hover:text-primary transition duration-300">Classes</a></li>
+                        <li><a href="#courses" class="text-gray-300 hover:text-primary transition duration-300">Courses</a></li>
+                        <li><a href="#registration" class="text-gray-300 hover:text-primary transition duration-300">Registration</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
+                    <div class="space-y-3">
+                        <div class="flex items-center">
+                            <i class="ri-phone-line text-primary mr-3"></i>
+                            <span>+1 (321) 320-0302</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="ri-map-pin-line text-primary mr-3 mt-1"></i>
+                            <span>4307 Vineland Road, H-12<br>Orlando, FL, United States, Florida</span>
+                        </div>
+                        <div class="text-sm text-gray-400 mt-4 italic">
+                            (Mid Florida Foundation is a 501(c)(3) tax-exempt nonprofit organization)
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hours -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Operating Hours</h4>
+                    <div class="space-y-2">
+                        <div class="flex justify-between">
+                            <span>Monday - Friday:</span>
+                            <span>8:00 AM - 5:00 PM</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Saturday:</span>
+                            <span>Closed</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Sunday:</span>
+                            <span>Closed</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-600 mt-12 pt-8 text-center">
+                <p class="text-gray-300">
+                    &copy; 2025 KIDS SCHOOL - AMF English School. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Admission Modal Functions
+        function openAdmissionModal() {
+            document.getElementById('admissionModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function closeAdmissionModal() {
+            document.getElementById('admissionModal').classList.add('hidden');
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('admissionModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeAdmissionModal();
+            }
+        });
+
+        // Close modal with ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && !document.getElementById('admissionModal').classList.contains('hidden')) {
+                    closeAdmissionModal();
+                }
+        });
+
+        // Registration Form Handling
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+
+            // Basic validation
+            const requiredFields = ['firstName', 'lastName', 'email', 'phone', 'englishLevel', 'course', 'schedule'];
+            let isValid = true;
+            let firstInvalidField = null;
+
+            requiredFields.forEach(field => {
+                const element = document.querySelector(`[name="${field}"]`);
+                if (!data[field] || data[field].trim() === '') {
+                    element.classList.add('border-red-500', 'ring-red-500');
+                    if (!firstInvalidField) firstInvalidField = element;
+                    isValid = false;
+                } else {
+                    element.classList.remove('border-red-500', 'ring-red-500');
+                }
+            });
+
+            if (!isValid) {
+                firstInvalidField.focus();
+                // Show error message
+                showNotification('Please fill in all required fields.', 'error');
+                return;
+            }
+
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(data.email)) {
+                const emailField = document.querySelector('[name="email"]');
+                emailField.classList.add('border-red-500', 'ring-red-500');
+                emailField.focus();
+                showNotification('Please enter a valid email address.', 'error');
+                return;
+            }
+
+            // Phone validation (basic)
+            const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
+            if (!phoneRegex.test(data.phone.replace(/[\s\-\(\)]/g, ''))) {
+                const phoneField = document.querySelector('[name="phone"]');
+                phoneField.classList.add('border-red-500', 'ring-red-500');
+                phoneField.focus();
+                showNotification('Please enter a valid phone number.', 'error');
+                return;
+            }
+
+            // Show loading state
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="ri-loader-4-line animate-spin mr-3"></i>Submitting...';
+            submitBtn.disabled = true;
+
+            // Simulate form submission (replace with actual API call)
+            setTimeout(() => {
+                // Reset form
+                this.reset();
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+
+                // Show success message
+                showNotification('Thank you for registering! Our team will contact you within 24 hours.', 'success');
+
+                // You can add actual form submission logic here
+                console.log('Form data:', data);
+            }, 2000);
+        });
+
+        // Notification system
+        function showNotification(message, type = 'info') {
+            // Remove existing notifications
+            const existingNotifications = document.querySelectorAll('.notification');
+            existingNotifications.forEach(notification => notification.remove());
+
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = `notification fixed top-4 right-4 z-50 p-4 rounded-xl shadow-lg transform translate-x-full transition-all duration-300 max-w-sm`;
+
+            let bgColor, textColor, icon;
+            switch(type) {
+                case 'success':
+                    bgColor = 'bg-green-500';
+                    textColor = 'text-white';
+                    icon = 'ri-check-circle-line';
+                    break;
+                case 'error':
+                    bgColor = 'bg-red-500';
+                    textColor = 'text-white';
+                    icon = 'ri-error-warning-line';
+                    break;
+                default:
+                    bgColor = 'bg-blue-500';
+                    textColor = 'text-white';
+                    icon = 'ri-information-line';
+            }
+
+            notification.classList.add(bgColor, textColor);
+            notification.innerHTML = `
+                <div class="flex items-center space-x-3">
+                    <i class="${icon} text-xl"></i>
+                    <p class="text-sm font-medium">${message}</p>
+                    <button onclick="this.parentElement.parentElement.remove()" class="ml-auto hover:opacity-75">
+                        <i class="ri-close-line text-lg"></i>
+                    </button>
+                </div>
+            `;
+
+            document.body.appendChild(notification);
+
+            // Animate in
+            setTimeout(() => {
+                notification.classList.remove('translate-x-full');
+            }, 100);
+
+            // Auto remove after 5 seconds
+            setTimeout(() => {
+                notification.classList.add('translate-x-full');
+                setTimeout(() => {
+                    if (notification.parentElement) {
+                        notification.remove();
+                    }
+                }, 300);
+            }, 5000);
+        }
+
+        // Add CSS for animations
+        const style = document.createElement('style');
+        style.textContent = `
+            .animate-fade-in {
+                animation: fadeIn 0.6s ease-in-out;
+            }
+
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
