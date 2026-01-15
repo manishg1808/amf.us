@@ -39,7 +39,7 @@
         }
 
         .Btn {
-          width: 140px;
+          width: 220px;
           height: 40px;
           border: none;
           border-radius: 10px;
@@ -58,7 +58,7 @@
 
         .Btn::before {
           position: absolute;
-          content: "ENROLL";
+          content: "CALL NOW";
           color: #ffd277;
           display: flex;
           align-items: center;
@@ -240,8 +240,10 @@
     </section>
 
     <!-- About Us Section -->
-    <section id="about" class="py-16 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" class="py-16 relative overflow-hidden" style="background-image: url('assest/2.webp'); background-size: cover; background-position: center; background-attachment: fixed;">
+        <!-- Background Overlay for readability -->
+        <div class="absolute inset-0 bg-white bg-opacity-95 backdrop-blur-sm"></div>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Section Header -->
             <div class="text-center mb-12">
                 <div class="inline-flex items-center justify-center w-20 h-20 bg-primary/10 rounded-full mb-4">
@@ -378,8 +380,10 @@
     </section>
 
     <!-- Classes Section -->
-    <section id="classes" class="pt-4 pb-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="classes" class="pt-4 pb-24 relative" style="background-image: url('assest/2.webp'); background-size: cover; background-position: center; background-attachment: fixed;">
+        <!-- Background Overlay for readability -->
+        <div class="absolute inset-0 bg-white bg-opacity-95 backdrop-blur-sm"></div>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Section Header -->
             <div class="text-center mb-20">
                 <div class="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-br from-blue-100 via-blue-50 to-indigo-100 rounded-full shadow-lg mb-6">
@@ -459,33 +463,12 @@
                             </div>
                         </div>
 
-                        <!-- Features -->
-                        <div class="space-y-3 mb-10">
-                            <div class="flex items-center text-gray-700">
-                                <div class="w-5 h-5 bg-green-100 rounded-full flex items-center justify-center mr-3">
-                                    <i class="ri-check-line text-green-600 text-xs"></i>
-                                </div>
-                                <span class="font-medium">Basic vocabulary & phrases</span>
-                            </div>
-                            <div class="flex items-center text-gray-700">
-                                <div class="w-5 h-5 bg-green-100 rounded-full flex items-center justify-center mr-3">
-                                    <i class="ri-check-line text-green-600 text-xs"></i>
-                                </div>
-                                <span class="font-medium">Simple conversations</span>
-                            </div>
-                            <div class="flex items-center text-gray-700">
-                                <div class="w-5 h-5 bg-green-100 rounded-full flex items-center justify-center mr-3">
-                                    <i class="ri-check-line text-green-600 text-xs"></i>
-                                </div>
-                                <span class="font-medium">8-week intensive program</span>
-                            </div>
-                        </div>
 
                         <!-- CTA Button -->
-                        <button onclick="openAdmissionModal()" class="Btn">
-                            <i class="ri-user-add-line mr-2"></i>
-                            ENROLL
-                        </button>
+                        <a href="tel:+3213200302" class="inline-block bg-red-maroon hover:bg-blue-800 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:-translate-y-1 text-center">
+                            <i class="ri-phone-line mr-2"></i>
+                            Call Now
+                        </a>
                     </div>
                 </div>
 
@@ -527,33 +510,12 @@
                             </div>
                         </div>
 
-                        <!-- Features -->
-                        <div class="space-y-3 mb-10">
-                            <div class="flex items-center text-gray-700">
-                                <div class="w-5 h-5 bg-blue-100 rounded-full flex items-center justify-center mr-3">
-                                    <i class="ri-check-line text-blue-600 text-xs"></i>
-                                </div>
-                                <span class="font-medium">Daily conversations</span>
-                            </div>
-                            <div class="flex items-center text-gray-700">
-                                <div class="w-5 h-5 bg-blue-100 rounded-full flex items-center justify-center mr-3">
-                                    <i class="ri-check-line text-blue-600 text-xs"></i>
-                                </div>
-                                <span class="font-medium">Routine situations</span>
-                            </div>
-                            <div class="flex items-center text-gray-700">
-                                <div class="w-5 h-5 bg-blue-100 rounded-full flex items-center justify-center mr-3">
-                                    <i class="ri-check-line text-blue-600 text-xs"></i>
-                                </div>
-                                <span class="font-medium">10-week intensive program</span>
-                            </div>
-                        </div>
 
                         <!-- CTA Button -->
-                        <button onclick="openAdmissionModal()" class="Btn">
-                            <i class="ri-user-add-line mr-2"></i>
-                            ENROLL
-                        </button>
+                        <a href="tel:+3213200302" class="inline-block bg-red-maroon hover:bg-blue-800 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:-translate-y-1 text-center">
+                            <i class="ri-phone-line mr-2"></i>
+                            Call Now
+                        </a>
                     </div>
                 </div>
 
@@ -595,33 +557,12 @@
                             </div>
                         </div>
 
-                        <!-- Features -->
-                        <div class="space-y-3 mb-10">
-                            <div class="flex items-center text-gray-700">
-                                <div class="w-5 h-5 bg-purple-100 rounded-full flex items-center justify-center mr-3">
-                                    <i class="ri-check-line text-purple-600 text-xs"></i>
-                                </div>
-                                <span class="font-medium">Travel conversations</span>
-                            </div>
-                            <div class="flex items-center text-gray-700">
-                                <div class="w-5 h-5 bg-purple-100 rounded-full flex items-center justify-center mr-3">
-                                    <i class="ri-check-line text-purple-600 text-xs"></i>
-                                </div>
-                                <span class="font-medium">Work situations</span>
-                            </div>
-                            <div class="flex items-center text-gray-700">
-                                <div class="w-5 h-5 bg-purple-100 rounded-full flex items-center justify-center mr-3">
-                                    <i class="ri-check-line text-purple-600 text-xs"></i>
-                                </div>
-                                <span class="font-medium">12-week intensive program</span>
-                            </div>
-                        </div>
 
                         <!-- CTA Button -->
-                        <button onclick="openAdmissionModal()" class="Btn">
-                            <i class="ri-user-add-line mr-2"></i>
-                            ENROLL
-                        </button>
+                        <a href="tel:+3213200302" class="inline-block bg-red-maroon hover:bg-blue-800 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:-translate-y-1 text-center">
+                            <i class="ri-phone-line mr-2"></i>
+                            Call Now
+                        </a>
                     </div>
                 </div>
 
@@ -663,33 +604,12 @@
                             </div>
                         </div>
 
-                        <!-- Features -->
-                        <div class="space-y-3 mb-10">
-                            <div class="flex items-center text-gray-700">
-                                <div class="w-5 h-5 bg-red-100 rounded-full flex items-center justify-center mr-3">
-                                    <i class="ri-check-line text-red-600 text-xs"></i>
-                                </div>
-                                <span class="font-medium">Complex discussions</span>
-                            </div>
-                            <div class="flex items-center text-gray-700">
-                                <div class="w-5 h-5 bg-red-100 rounded-full flex items-center justify-center mr-3">
-                                    <i class="ri-check-line text-red-600 text-xs"></i>
-                                </div>
-                                <span class="font-medium">Academic writing</span>
-                            </div>
-                            <div class="flex items-center text-gray-700">
-                                <div class="w-5 h-5 bg-red-100 rounded-full flex items-center justify-center mr-3">
-                                    <i class="ri-check-line text-red-600 text-xs"></i>
-                                </div>
-                                <span class="font-medium">14-week intensive program</span>
-                            </div>
-                        </div>
 
                         <!-- CTA Button -->
-                        <button onclick="openAdmissionModal()" class="Btn">
-                            <i class="ri-user-add-line mr-2"></i>
-                            ENROLL
-                        </button>
+                        <a href="tel:+3213200302" class="inline-block bg-red-maroon hover:bg-blue-800 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:-translate-y-1 text-center">
+                            <i class="ri-phone-line mr-2"></i>
+                            Call Now
+                        </a>
                     </div>
                 </div>
 
@@ -732,32 +652,12 @@
                         </div>
 
                         <!-- Features -->
-                        <div class="space-y-3 mb-10">
-                            <div class="flex items-center text-gray-700">
-                                <div class="w-5 h-5 bg-indigo-100 rounded-full flex items-center justify-center mr-3">
-                                    <i class="ri-check-line text-indigo-600 text-xs"></i>
-                                </div>
-                                <span class="font-medium">Complex discussions</span>
-                            </div>
-                            <div class="flex items-center text-gray-700">
-                                <div class="w-5 h-5 bg-indigo-100 rounded-full flex items-center justify-center mr-3">
-                                    <i class="ri-check-line text-indigo-600 text-xs"></i>
-                                </div>
-                                <span class="font-medium">Academic presentations</span>
-                            </div>
-                            <div class="flex items-center text-gray-700">
-                                <div class="w-5 h-5 bg-indigo-100 rounded-full flex items-center justify-center mr-3">
-                                    <i class="ri-check-line text-indigo-600 text-xs"></i>
-                                </div>
-                                <span class="font-medium">16-week intensive program</span>
-                            </div>
-                        </div>
 
                         <!-- CTA Button -->
-                        <button onclick="openAdmissionModal()" class="Btn">
-                            <i class="ri-user-add-line mr-2"></i>
-                            ENROLL
-                        </button>
+                        <a href="tel:+3213200302" class="inline-block bg-red-maroon hover:bg-blue-800 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:-translate-y-1 text-center">
+                            <i class="ri-phone-line mr-2"></i>
+                            Call Now
+                        </a>
                     </div>
                 </div>
 
@@ -799,33 +699,12 @@
                             </div>
                         </div>
 
-                        <!-- Features -->
-                        <div class="space-y-3 mb-10">
-                            <div class="flex items-center text-gray-700">
-                                <div class="w-5 h-5 bg-yellow-100 rounded-full flex items-center justify-center mr-3">
-                                    <i class="ri-check-line text-yellow-600 text-xs"></i>
-                                </div>
-                                <span class="font-medium">Native-like fluency</span>
-                            </div>
-                            <div class="flex items-center text-gray-700">
-                                <div class="w-5 h-5 bg-yellow-100 rounded-full flex items-center justify-center mr-3">
-                                    <i class="ri-check-line text-yellow-600 text-xs"></i>
-                                </div>
-                                <span class="font-medium">Professional expertise</span>
-                            </div>
-                            <div class="flex items-center text-gray-700">
-                                <div class="w-5 h-5 bg-yellow-100 rounded-full flex items-center justify-center mr-3">
-                                    <i class="ri-check-line text-yellow-600 text-xs"></i>
-                                </div>
-                                <span class="font-medium">18-week intensive program</span>
-                            </div>
-                        </div>
 
                         <!-- CTA Button -->
-                        <button onclick="openAdmissionModal()" class="Btn">
-                            <i class="ri-user-add-line mr-2"></i>
-                            ENROLL
-                        </button>
+                        <a href="tel:+3213200302" class="inline-block bg-red-maroon hover:bg-blue-800 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:-translate-y-1 text-center">
+                            <i class="ri-phone-line mr-2"></i>
+                            Call Now
+                        </a>
                     </div>
                 </div>
             </div>
@@ -858,12 +737,14 @@
     </section>
 
     <!-- Courses Section -->
-    <section id="courses" class="pt-4 pb-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="courses" class="pt-4 pb-24 relative" style="background-image: url('assest/2.webp'); background-size: cover; background-position: center; background-attachment: fixed;">
+        <!-- Background Overlay for readability -->
+        <div class="absolute inset-0 bg-white bg-opacity-95 backdrop-blur-sm"></div>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Section Header -->
             <div class="text-center mb-20">
-                <div class="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl shadow-lg mb-8">
-                    <i class="ri-book-open-line text-4xl text-white"></i>
+                <div class="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-br from-indigo-100 to-purple-200 border-2 border-indigo-300 rounded-full shadow-lg mb-8">
+                    <i class="ri-book-open-line text-4xl text-indigo-600"></i>
                 </div>
                 <h2 class="text-5xl lg:text-6xl font-bold mb-8 tracking-tight" style="color: #1e3a8a;">
                     Find Your Course
@@ -920,24 +801,20 @@
                         </div>
 
                         <!-- Branding -->
-                        <div class="flex items-center justify-between mb-8">
+                        <div class="flex items-center justify-center mb-8">
                             <div class="flex items-center space-x-2">
                                 <div class="w-8 h-8 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center">
                                     <span class="text-white font-bold text-sm">A</span>
                                 </div>
                                 <span class="text-indigo-600 font-bold text-lg">AMF</span>
                             </div>
-                            <div class="text-right">
-                                <div class="text-2xl font-bold text-indigo-600">$299</div>
-                                <div class="text-sm text-gray-500">per course</div>
-                            </div>
                         </div>
 
                         <!-- CTA Button -->
-                        <button onclick="openAdmissionModal()" class="Btn">
-                            <i class="ri-user-add-line mr-2"></i>
-                            ENROLL
-                        </button>
+                        <a href="tel:+3213200302" class="inline-block bg-red-maroon hover:bg-blue-800 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:-translate-y-1 text-center">
+                            <i class="ri-phone-line mr-2"></i>
+                            Call Now
+                        </a>
                     </div>
                 </div>
 
@@ -985,24 +862,20 @@
                         </div>
 
                         <!-- Branding -->
-                        <div class="flex items-center justify-between mb-8">
+                        <div class="flex items-center justify-center mb-8">
                             <div class="flex items-center space-x-2">
                                 <div class="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-600 rounded-lg flex items-center justify-center">
                                     <span class="text-white font-bold text-sm">A</span>
                                 </div>
                                 <span class="text-purple-600 font-bold text-lg">AMF</span>
                             </div>
-                            <div class="text-right">
-                                <div class="text-2xl font-bold text-purple-600">$399</div>
-                                <div class="text-sm text-gray-500">per course</div>
-                            </div>
                         </div>
 
                         <!-- CTA Button -->
-                        <button onclick="openAdmissionModal()" class="Btn">
-                            <i class="ri-user-add-line mr-2"></i>
-                            ENROLL
-                        </button>
+                        <a href="tel:+3213200302" class="inline-block bg-red-maroon hover:bg-blue-800 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:-translate-y-1 text-center">
+                            <i class="ri-phone-line mr-2"></i>
+                            Call Now
+                        </a>
                     </div>
                 </div>
 
@@ -1050,24 +923,20 @@
                         </div>
 
                         <!-- Branding -->
-                        <div class="flex items-center justify-between mb-8">
+                        <div class="flex items-center justify-center mb-8">
                             <div class="flex items-center space-x-2">
                                 <div class="w-8 h-8 bg-gradient-to-r from-pink-500 to-rose-600 rounded-lg flex items-center justify-center">
                                     <span class="text-white font-bold text-sm">A</span>
                                 </div>
                                 <span class="text-pink-600 font-bold text-lg">AMF</span>
                             </div>
-                            <div class="text-right">
-                                <div class="text-2xl font-bold text-pink-600">$499</div>
-                                <div class="text-sm text-gray-500">per course</div>
-                            </div>
                         </div>
 
                         <!-- CTA Button -->
-                        <button onclick="openAdmissionModal()" class="Btn">
-                            <i class="ri-user-add-line mr-2"></i>
-                            ENROLL
-                        </button>
+                        <a href="tel:+3213200302" class="inline-block bg-red-maroon hover:bg-blue-800 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:-translate-y-1 text-center">
+                            <i class="ri-phone-line mr-2"></i>
+                            Call Now
+                        </a>
                     </div>
                 </div>
             </div>
