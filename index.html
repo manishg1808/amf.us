@@ -95,11 +95,11 @@
                 <div class="flex items-center">
                     <div class="flex items-center space-x-2">
                         <i class="ri-graduation-cap-line text-2xl text-primary"></i>
-                    <img src="assest/logo1.jpg" alt="KIDS SCHOOL Logo" class="h-16 w-auto">
+                    <img src="assest/logo1.jpg" alt="KIDS SCHOOL Logo" class="h-12 md:h-16 w-auto">
                     </div>
                 </div>
 
-                <!-- Menu Items -->
+                <!-- Desktop Menu Items -->
                 <div class="hidden md:flex space-x-8">
                     <a href="#home" class="text-white hover:text-primary transition duration-300">Home</a>
                     <a href="#about" class="text-white hover:text-primary transition duration-300">About</a>
@@ -108,17 +108,29 @@
                     <a href="#registration" class="text-white hover:text-primary transition duration-300">Registration</a>
                 </div>
 
-                <!-- Right Side Buttons -->
-                <div class="flex items-center">
-                    <a href="tel:+3213200302" class="bg-green-500 text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-green-600 transition duration-300 animate-pulse cursor-pointer flex items-center">
+                <!-- Desktop Right Side Buttons -->
+                <div class="hidden md:flex items-center space-x-3">
+                    <a href="tel:+13216629780" class="bg-red-maroon text-white px-4 py-2 rounded-full text-sm font-semibold hover:opacity-90 transition duration-300 animate-pulse cursor-pointer flex items-center">
                         <i class="ri-phone-line mr-2 text-xs"></i>
-                        Call Now: +321 320 0302
+                        Call Now
+                    </a>
+                    <a href="https://wa.me/13216629780" target="_blank" class="text-green-500 hover:text-green-400 transition duration-300 cursor-pointer flex items-center justify-center" title="Chat on WhatsApp">
+                        <i class="fab fa-whatsapp text-xl"></i>
                     </a>
                 </div>
 
-                <!-- Mobile Menu Button -->
-                <div class="md:hidden">
-                    <button id="mobile-menu-btn" class="text-white hover:text-primary">
+                <!-- Mobile Header (Logo + Buttons + Menu Toggle) -->
+                <div class="md:hidden flex items-center space-x-2">
+                    <!-- Mobile Call/WhatsApp Buttons -->
+                    <a href="tel:+13216629780" class="bg-red-maroon text-white px-2 py-1 rounded-full text-xs font-semibold hover:opacity-90 transition duration-300 flex items-center">
+                        <i class="ri-phone-line mr-1"></i>
+                    </a>
+                    <a href="https://wa.me/13216629780" target="_blank" class="text-green-500 hover:text-green-400 transition duration-300 p-1" title="Chat on WhatsApp">
+                        <i class="fab fa-whatsapp text-lg"></i>
+                    </a>
+
+                    <!-- Mobile Menu Toggle Button -->
+                    <button id="mobile-menu-btn" class="text-white hover:text-primary ml-2 p-1">
                         <i class="ri-menu-line text-xl"></i>
                     </button>
                 </div>
@@ -204,6 +216,85 @@
         </div>
     </div>
 
+    <!-- Get Quote Modal -->
+    <div id="quoteModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-2xl shadow-md max-w-md w-full max-h-[90vh] overflow-y-auto">
+                <!-- Modal Header -->
+                <div class="bg-red-maroon text-white p-6 rounded-t-2xl">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-xl font-bold">Get Quote</h3>
+                        <button onclick="closeQuoteModal()" class="text-white hover:text-gray-200 text-2xl">&times;</button>
+                    </div>
+                </div>
+
+                <!-- Modal Body -->
+                <div class="p-6">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="ri-file-text-line text-2xl text-green-600"></i>
+                        </div>
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">Get Your Free Quote!</h4>
+                        <p class="text-gray-600">Fill out this form and we'll send you a personalized quote via WhatsApp.</p>
+                    </div>
+
+                    <form id="quoteForm" class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                            <input type="text" id="quoteName" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Enter your full name" required>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                            <input type="email" id="quoteEmail" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Enter your email" required>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                            <input type="tel" id="quotePhone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Enter your phone number" required>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Interested Course</label>
+                            <select id="quoteCourse" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" required>
+                                <option value="">Select a course</option>
+                                <option value="General English">General English</option>
+                                <option value="Business English">Business English</option>
+                                <option value="IELTS Preparation">IELTS Preparation</option>
+                                <option value="Kids English Program">Kids English Program</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Preferred Class Time</label>
+                            <select id="quoteClassTime" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" required>
+                                <option value="">Select class time</option>
+                                <option value="Day Classes">Day Classes (Morning/Afternoon)</option>
+                                <option value="Night Classes">Night Classes (Evening)</option>
+                                <option value="Weekend Classes">Weekend Classes</option>
+                                <option value="Flexible">Flexible Timing</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Message (Optional)</label>
+                            <textarea id="quoteMessage" rows="3" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Any specific questions or requirements?"></textarea>
+                        </div>
+
+                        <button type="button" onclick="submitQuoteForm()" class="w-full bg-red-maroon text-white py-3 rounded-lg font-semibold hover:shadow-sm transition-all duration-300 transform hover:-translate-y-1">
+                            <i class="fab fa-whatsapp mr-2"></i>
+                            Get Quote via WhatsApp
+                        </button>
+                    </form>
+
+                    <div class="text-center mt-4 text-sm text-gray-500">
+                        We'll respond within 24 hours!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Hero Section -->
     <section id="home" class="relative bg-white py-20 overflow-hidden">
         <!-- Background Image -->
@@ -226,17 +317,40 @@
                     </p>
 
                     <div class="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
-                        <button class="bg-red-maroon text-white px-8 py-3 rounded-lg text-lg font-semibold hover:shadow-sm transition-all duration-300 shadow-sm transform hover:-translate-y-1">
-                            Get Started Today
-                        </button>
-                        <button class="bg-secondary text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-secondary/90 transition duration-300 shadow-sm">
+                        <a href="#registration" class="bg-red-maroon text-white px-8 py-3 rounded-lg text-lg font-semibold hover:shadow-sm transition-all duration-300 shadow-sm transform hover:-translate-y-1 inline-block text-center">
+                            Enroll
+                        </a>
+                        <a href="#about" class="bg-secondary text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-secondary/90 transition duration-300 shadow-sm inline-block text-center">
                             Learn More
-                        </button>
+                        </a>
                     </div>
                 </div>
 
                         </div>
                     </div>
+
+                <!-- Quick Notes Section -->
+                <div class="mt-8 max-w-2xl mx-auto">
+                    <div class="bg-white/20 backdrop-blur-md rounded-lg border-2 border-yellow-400 p-4 shadow-sm">
+                        <div class="flex items-center justify-between">
+                            <div class="flex-1">
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+                                    <div class="flex items-center text-gray-700">
+                                        <i class="ri-calendar-check-line text-blue-500 mr-2"></i>
+                                        <span>4 classes/week • 2.5hrs each</span>
+                                    </div>
+                                    <div class="flex items-center text-gray-700">
+                                        <i class="ri-money-dollar-circle-line text-green-500 mr-2"></i>
+                                        <span>Only $550 - Full program</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="#registration" class="ml-4 bg-red-maroon text-white px-4 py-2 rounded-md text-sm font-medium hover:opacity-90 transition-all duration-300">
+                                Enroll
+                            </a>
+                        </div>
+                    </div>
+                </div>
     </section>
 
     <!-- About Us Section -->
@@ -307,7 +421,7 @@
                         <div>
                             <h3 class="text-2xl font-bold text-secondary mb-3">Global Certification</h3>
                             <p class="text-gray-600 leading-relaxed text-lg text-justify">
-                                Earn an official certificate of completion at each level — recognized both online and on campus. Our certifications are accredited and valued worldwide.
+                                Earn an official certificate of completion at each level — recognized both online and on campus.
                             </p>
                         </div>
                     </div>
@@ -340,7 +454,7 @@
                         <div>
                             <h3 class="text-2xl font-bold text-secondary mb-3">Student Support & Guidance</h3>
                             <p class="text-gray-600 leading-relaxed text-lg text-justify">
-                                Get personalized feedback, placement tests, and comprehensive study materials. Our dedicated support team ensures you achieve your language learning goals.
+                                Get personalized feedback, placement tests and comprehensive study materials. Our dedicated support team ensures you achieve your language learning goals.
                             </p>
                         </div>
                     </div>
@@ -365,10 +479,10 @@
                         Join thousands of successful learners who have transformed their lives through our comprehensive English programs. Take the first step towards fluency today.
                     </p>
                     <div class="flex justify-center">
-                        <button onclick="openCallbackModal()" class="bg-secondary text-white px-8 py-3 rounded-xl font-bold text-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-105">
+                        <a href="tel:+13216629780" class="bg-secondary text-white px-8 py-3 rounded-xl font-bold text-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 inline-block text-center">
                             <i class="ri-phone-line mr-2"></i>
-                            Free Consultation
-                        </button>
+                            Free Consultation: (321) 662-9780
+                        </a>
                     </div>
                 </div>
             </div>
@@ -420,36 +534,49 @@
     </div>
 
             <!-- Classes Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 items-stretch">
                 <!-- A1 Beginner -->
-                <div class="group relative bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border border-gray-200 overflow-hidden">
+                <div class="group relative bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border border-gray-200 overflow-hidden flex flex-col h-full">
                     <!-- Background Gradient Overlay -->
                     <div class="absolute inset-0 bg-gradient-to-br from-green-50 to-emerald-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-                    <!-- Level Ribbon -->
+                    <!-- Level Badges -->
+                    <div class="absolute top-4 left-4 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
+                        Level 1
+                    </div>
                     <div class="absolute top-4 right-4 bg-gradient-to-r from-green-500 to-emerald-600 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
-                        A1
+                        CEFR-A1
                     </div>
 
-                    <div class="relative p-10">
+                    <div class="relative p-10 flex flex-col h-full">
                         <!-- Level Badge & Icon -->
-                        <div class="flex items-center mb-8">
+                        <div class="flex items-center mb-6">
                             <div class="w-16 h-16 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                                 <i class="ri-seedling-line text-3xl text-green-600"></i>
                             </div>
                             <div class="ml-4">
-                                <div class="text-sm font-semibold text-green-600 uppercase tracking-wide">Foundation Level</div>
-                                <h3 class="text-3xl font-bold text-secondary">Beginner</h3>
+                                <h3 class="text-2xl font-bold text-secondary">Beginner Foundations</h3>
                             </div>
                         </div>
 
                         <!-- Description -->
-                        <p class="text-gray-700 mb-8 leading-relaxed text-lg">
-                            Can understand and use basic phrases and very common expressions. Perfect for complete beginners taking their first steps in English.
+                        <p class="text-gray-700 mb-6 leading-relaxed text-lg text-justify">
+                            Perfect for students with little or no English experience. Learn basic vocabulary, pronunciation, and simple sentences for everyday communication.
                         </p>
+                        <div class="text-left">
+                            <p class="text-sm font-semibold text-green-700 mb-2">You will learn to:</p>
+                            <ul class="text-sm text-gray-600 space-y-1 text-justify">
+                                <li><i class="ri-arrow-right-line text-green-600 mr-2"></i>Greet others and introduce yourself</li>
+                                <li><i class="ri-arrow-right-line text-green-600 mr-2"></i>Understand basic English words and phrases</li>
+                                <li><i class="ri-arrow-right-line text-green-600 mr-2"></i>Speak simple sentences with confidence</li>
+                            </ul>
+                        </div>
+
+                        <!-- Spacer to push content to bottom -->
+                        <div class="flex-grow"></div>
 
                         <!-- Progress Bar -->
-                        <div class="mb-8">
+                        <div class="mb-4">
                             <div class="flex justify-between text-sm text-gray-600 mb-2">
                                 <span>Difficulty Level</span>
                                 <span>Beginner</span>
@@ -459,9 +586,8 @@
                             </div>
                         </div>
 
-
                         <!-- CTA Button -->
-                        <a href="tel:+3213200302" class="inline-block bg-red-maroon hover:bg-blue-800 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:-translate-y-1 text-center">
+                        <a href="tel:+13216629780" class="inline-block bg-red-maroon hover:bg-blue-800 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:-translate-y-1 text-center">
                             <i class="ri-phone-line mr-2"></i>
                             Call Now
                         </a>
@@ -469,34 +595,50 @@
                 </div>
 
                 <!-- A2 Beginner -->
-                <div class="group relative bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border border-gray-200 overflow-hidden">
+                <div class="group relative bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border border-gray-200 overflow-hidden flex flex-col h-full">
                     <!-- Background Gradient Overlay -->
                     <div class="absolute inset-0 bg-gradient-to-br from-blue-50 to-cyan-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-                    <!-- Level Ribbon -->
+                    <!-- Level Badges -->
+                    <div class="absolute top-4 left-4 bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
+                        Level 2
+                    </div>
                     <div class="absolute top-4 right-4 bg-gradient-to-r from-blue-500 to-cyan-600 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
-                        A2
+                        CEFR-A2
                     </div>
 
-                    <div class="relative p-10">
+                    <div class="relative p-10 flex flex-col h-full">
                         <!-- Level Badge & Icon -->
-                        <div class="flex items-center mb-8">
+                        <div class="flex items-center mb-6">
                             <div class="w-16 h-16 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                                 <i class="ri-water-flash-line text-3xl text-blue-600"></i>
                             </div>
                             <div class="ml-4">
-                                <div class="text-sm font-semibold text-blue-600 uppercase tracking-wide">Foundation Level</div>
-                                <h3 class="text-3xl font-bold text-secondary">Elementary</h3>
+                                <h3 class="text-2xl font-bold text-secondary">
+                                    Beginner<br>
+                                    <span class="text-xl font-bold">Building Confidence</span>
+                                </h3>
                             </div>
                         </div>
 
                         <!-- Description -->
-                        <p class="text-gray-700 mb-8 leading-relaxed text-lg">
-                            Can handle routine situations and make themselves understood in simple exchanges, discussing daily activities and familiar topics.
+                        <p class="text-gray-700 mb-6 leading-relaxed text-lg text-justify">
+                            For students who know basic English and want to speak more. Improve conversation skills and express simple ideas clearly.
                         </p>
+                        <div class="text-left">
+                            <p class="text-sm font-semibold text-blue-700 mb-2">You will learn to:</p>
+                            <ul class="text-sm text-gray-600 space-y-1 text-justify">
+                                <li><i class="ri-arrow-right-line text-blue-600 mr-2"></i>Talk about daily life and work</li>
+                                <li><i class="ri-arrow-right-line text-blue-600 mr-2"></i>Ask and answer questions</li>
+                                <li><i class="ri-arrow-right-line text-blue-600 mr-2"></i>Read and write short texts</li>
+                            </ul>
+                        </div>
+
+                        <!-- Spacer to push content to bottom -->
+                        <div class="flex-grow"></div>
 
                         <!-- Progress Bar -->
-                        <div class="mb-8">
+                        <div class="mb-4">
                             <div class="flex justify-between text-sm text-gray-600 mb-2">
                                 <span>Difficulty Level</span>
                                 <span>Elementary</span>
@@ -506,9 +648,8 @@
                             </div>
                         </div>
 
-
                         <!-- CTA Button -->
-                        <a href="tel:+3213200302" class="inline-block bg-red-maroon hover:bg-blue-800 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:-translate-y-1 text-center">
+                        <a href="tel:+13216629780" class="inline-block bg-red-maroon hover:bg-blue-800 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:-translate-y-1 text-center">
                             <i class="ri-phone-line mr-2"></i>
                             Call Now
                         </a>
@@ -516,46 +657,58 @@
                 </div>
 
                 <!-- B1 Intermediate -->
-                <div class="group relative bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border border-gray-200 overflow-hidden">
+                <div class="group relative bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border border-gray-200 overflow-hidden flex flex-col h-full">
                     <!-- Background Gradient Overlay -->
                     <div class="absolute inset-0 bg-gradient-to-br from-purple-50 to-violet-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-                    <!-- Level Ribbon -->
+                    <!-- Level Badges -->
+                    <div class="absolute top-4 left-4 bg-purple-600 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
+                        Level 1
+                    </div>
                     <div class="absolute top-4 right-4 bg-gradient-to-r from-purple-500 to-violet-600 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
-                        B1
-            </div>
+                        CEFR-B1
+                    </div>
 
-                    <div class="relative p-10">
+                    <div class="relative p-10 flex flex-col h-full">
                         <!-- Level Badge & Icon -->
-                        <div class="flex items-center mb-8">
+                        <div class="flex items-center mb-6">
                             <div class="w-16 h-16 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                                 <i class="ri-plane-line text-3xl text-purple-600"></i>
-        </div>
+                            </div>
                             <div class="ml-4">
-                                <div class="text-sm font-semibold text-purple-600 uppercase tracking-wide">Intermediate Level</div>
-                                <h3 class="text-3xl font-bold text-secondary">Intermediate</h3>
+                                <h3 class="text-2xl font-bold text-secondary">Intermediate Everyday English</h3>
                             </div>
                         </div>
 
                         <!-- Description -->
-                        <p class="text-gray-700 mb-8 leading-relaxed text-lg">
-                            Can understand familiar topics and communicate in most situations while traveling. Ready for intermediate conversations and travel scenarios.
+                        <p class="text-gray-700 mb-6 leading-relaxed text-lg text-justify">
+                            Designed for students ready to communicate more naturally in daily and workplace situations.
                         </p>
+                        <div class="text-left">
+                            <p class="text-sm font-semibold text-purple-700 mb-2">You will learn to:</p>
+                            <ul class="text-sm text-gray-600 space-y-1 text-justify">
+                                <li><i class="ri-arrow-right-line text-purple-600 mr-2"></i>Speak confidently in conversations</li>
+                                <li><i class="ri-arrow-right-line text-purple-600 mr-2"></i>Use correct grammar and vocabulary</li>
+                                <li><i class="ri-arrow-right-line text-purple-600 mr-2"></i>Write short emails and messages</li>
+                            </ul>
+                        </div>
+
+                        <!-- Spacer to push content to bottom -->
+                        <div class="flex-grow"></div>
 
                         <!-- Progress Bar -->
-                        <div class="mb-8">
+                        <div class="mb-4">
                             <div class="flex justify-between text-sm text-gray-600 mb-2">
                                 <span>Difficulty Level</span>
                                 <span>Intermediate</span>
-            </div>
+                            </div>
                             <div class="w-full bg-gray-200 rounded-full h-2">
                                 <div class="bg-gradient-to-r from-purple-400 to-violet-500 h-2 rounded-full w-3/6"></div>
                             </div>
                         </div>
 
-
                         <!-- CTA Button -->
-                        <a href="tel:+3213200302" class="inline-block bg-red-maroon hover:bg-blue-800 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:-translate-y-1 text-center">
+                        <a href="tel:+13216629780" class="inline-block bg-red-maroon hover:bg-blue-800 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:-translate-y-1 text-center">
                             <i class="ri-phone-line mr-2"></i>
                             Call Now
                         </a>
@@ -563,34 +716,47 @@
                 </div>
 
                 <!-- B2 Upper Intermediate -->
-                <div class="group relative bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border border-gray-200 overflow-hidden">
+                <div class="group relative bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border border-gray-200 overflow-hidden flex flex-col h-full">
                     <!-- Background Gradient Overlay -->
                     <div class="absolute inset-0 bg-gradient-to-br from-red-50 to-pink-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-                    <!-- Level Ribbon -->
+                    <!-- Level Badges -->
+                    <div class="absolute top-4 left-4 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
+                        Level 2
+                    </div>
                     <div class="absolute top-4 right-4 bg-gradient-to-r from-red-500 to-pink-600 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
-                        B2
+                        CEFR-B2
                     </div>
 
-                    <div class="relative p-10">
+                    <div class="relative p-10 flex flex-col h-full">
                         <!-- Level Badge & Icon -->
-                        <div class="flex items-center mb-8">
+                        <div class="flex items-center mb-6">
                             <div class="w-16 h-16 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                                 <i class="ri-star-line text-3xl text-red-600"></i>
                             </div>
                             <div class="ml-4">
-                                <div class="text-sm font-semibold text-red-600 uppercase tracking-wide">Advanced Level</div>
-                                <h3 class="text-3xl font-bold text-secondary">Upper Intermediate</h3>
+                                <h3 class="text-2xl font-bold text-secondary">Intermediate Professional English</h3>
                             </div>
                         </div>
 
                         <!-- Description -->
-                        <p class="text-gray-700 mb-8 leading-relaxed text-lg">
-                            Can understand complex texts, interact with fluency, and write clear, detailed texts. Advanced level for professional and academic communication.
+                        <p class="text-gray-700 mb-6 leading-relaxed text-lg text-justify">
+                            Focuses on clear communication for work, school, and professional settings.
                         </p>
+                        <div class="text-left">
+                            <p class="text-sm font-semibold text-red-700 mb-2">You will learn to:</p>
+                            <ul class="text-sm text-gray-600 space-y-1 text-justify">
+                                <li><i class="ri-arrow-right-line text-red-600 mr-2"></i>Participate in discussions and meetings</li>
+                                <li><i class="ri-arrow-right-line text-red-600 mr-2"></i>Write longer and clearer texts</li>
+                                <li><i class="ri-arrow-right-line text-red-600 mr-2"></i>Understand complex conversations</li>
+                            </ul>
+                        </div>
+
+                        <!-- Spacer to push content to bottom -->
+                        <div class="flex-grow"></div>
 
                         <!-- Progress Bar -->
-                        <div class="mb-8">
+                        <div class="mb-4">
                             <div class="flex justify-between text-sm text-gray-600 mb-2">
                                 <span>Difficulty Level</span>
                                 <span>Upper Intermediate</span>
@@ -600,9 +766,8 @@
                             </div>
                         </div>
 
-
                         <!-- CTA Button -->
-                        <a href="tel:+3213200302" class="inline-block bg-red-maroon hover:bg-blue-800 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:-translate-y-1 text-center">
+                        <a href="tel:+13216629780" class="inline-block bg-red-maroon hover:bg-blue-800 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:-translate-y-1 text-center">
                             <i class="ri-phone-line mr-2"></i>
                             Call Now
                         </a>
@@ -610,34 +775,47 @@
                 </div>
 
                 <!-- C1 Advanced -->
-                <div class="group relative bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border border-gray-200 overflow-hidden">
+                <div class="group relative bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border border-gray-200 overflow-hidden flex flex-col h-full">
                     <!-- Background Gradient Overlay -->
                     <div class="absolute inset-0 bg-gradient-to-br from-indigo-50 to-purple-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-                    <!-- Level Ribbon -->
+                    <!-- Level Badges -->
+                    <div class="absolute top-4 left-4 bg-indigo-600 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
+                        Level 1
+                    </div>
                     <div class="absolute top-4 right-4 bg-gradient-to-r from-indigo-500 to-purple-600 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
-                        C1
+                        CEFR-C1
                     </div>
 
-                    <div class="relative p-10">
+                    <div class="relative p-10 flex flex-col h-full">
                         <!-- Level Badge & Icon -->
-                        <div class="flex items-center mb-8">
+                        <div class="flex items-center mb-6">
                             <div class="w-16 h-16 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                                 <i class="ri-rocket-line text-3xl text-indigo-600"></i>
                             </div>
                             <div class="ml-4">
-                                <div class="text-sm font-semibold text-indigo-600 uppercase tracking-wide">Advanced Level</div>
-                                <h3 class="text-3xl font-bold text-secondary">Advanced</h3>
+                                <h3 class="text-2xl font-bold text-secondary">Advanced Fluency</h3>
                             </div>
                         </div>
 
                         <!-- Description -->
-                        <p class="text-gray-700 mb-8 leading-relaxed text-lg">
-                            Can understand a wide range of complex texts and express themselves fluently and spontaneously. Advanced proficiency for complex academic and professional contexts.
+                        <p class="text-gray-700 mb-6 leading-relaxed text-lg text-justify">
+                            For students who want to sound more natural and professional in English.
                         </p>
+                        <div class="text-left">
+                            <p class="text-sm font-semibold text-indigo-700 mb-2">You will learn to:</p>
+                            <ul class="text-sm text-gray-600 space-y-1 text-justify">
+                                <li><i class="ri-arrow-right-line text-indigo-600 mr-2"></i>Speak fluently and accurately</li>
+                                <li><i class="ri-arrow-right-line text-indigo-600 mr-2"></i>Present ideas clearly</li>
+                                <li><i class="ri-arrow-right-line text-indigo-600 mr-2"></i>Read and write advanced content</li>
+                            </ul>
+                        </div>
+
+                        <!-- Spacer to push content to bottom -->
+                        <div class="flex-grow"></div>
 
                         <!-- Progress Bar -->
-                        <div class="mb-8">
+                        <div class="mb-4">
                             <div class="flex justify-between text-sm text-gray-600 mb-2">
                                 <span>Difficulty Level</span>
                                 <span>Advanced</span>
@@ -647,10 +825,8 @@
                             </div>
                         </div>
 
-                        <!-- Features -->
-
                         <!-- CTA Button -->
-                        <a href="tel:+3213200302" class="inline-block bg-red-maroon hover:bg-blue-800 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:-translate-y-1 text-center">
+                        <a href="tel:+13216629780" class="inline-block bg-red-maroon hover:bg-blue-800 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:-translate-y-1 text-center">
                             <i class="ri-phone-line mr-2"></i>
                             Call Now
                         </a>
@@ -658,34 +834,47 @@
                 </div>
 
                 <!-- C2 Proficient/Mastery -->
-                <div class="group relative bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border border-gray-200 overflow-hidden">
+                <div class="group relative bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border border-gray-200 overflow-hidden flex flex-col h-full">
                     <!-- Background Gradient Overlay -->
                     <div class="absolute inset-0 bg-gradient-to-br from-yellow-50 to-orange-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-                    <!-- Level Ribbon -->
+                    <!-- Level Badges -->
+                    <div class="absolute top-4 left-4 bg-yellow-600 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
+                        Level 2
+                    </div>
                     <div class="absolute top-4 right-4 bg-gradient-to-r from-yellow-500 to-orange-600 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
-                        C2
+                        CEFR-C2
                     </div>
 
-                    <div class="relative p-10">
+                    <div class="relative p-10 flex flex-col h-full">
                         <!-- Level Badge & Icon -->
-                        <div class="flex items-center mb-8">
+                        <div class="flex items-center mb-6">
                             <div class="w-16 h-16 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                                <i class="ri-crown-line text-3xl text-yellow-600"></i>
+                                <i class="ri-trophy-line text-3xl text-yellow-600"></i>
                             </div>
                             <div class="ml-4">
-                                <div class="text-sm font-semibold text-yellow-600 uppercase tracking-wide">Mastery Level</div>
-                                <h3 class="text-3xl font-bold text-secondary">Proficient/Mastery</h3>
+                                <h3 class="text-2xl font-bold text-secondary">Advanced Mastery</h3>
                             </div>
                         </div>
 
                         <!-- Description -->
-                        <p class="text-gray-700 mb-8 leading-relaxed text-lg">
-                            Has mastery of the language, understanding implicit meaning, speaking with precision, and using the language effectively in almost any situation. Native-like fluency.
+                        <p class="text-gray-700 mb-6 leading-relaxed text-lg text-justify">
+                            The highest level for students aiming for professional or academic excellence.
                         </p>
+                        <div class="text-left">
+                            <p class="text-sm font-semibold text-yellow-700 mb-2">You will learn to:</p>
+                            <ul class="text-sm text-gray-600 space-y-1 text-justify">
+                                <li><i class="ri-arrow-right-line text-yellow-600 mr-2"></i>Communicate at a professional level</li>
+                                <li><i class="ri-arrow-right-line text-yellow-600 mr-2"></i>Lead discussions and presentations</li>
+                                <li><i class="ri-arrow-right-line text-yellow-600 mr-2"></i>Use advanced English with confidence</li>
+                            </ul>
+                        </div>
+
+                        <!-- Spacer to push content to bottom -->
+                        <div class="flex-grow"></div>
 
                         <!-- Progress Bar -->
-                        <div class="mb-8">
+                        <div class="mb-4">
                             <div class="flex justify-between text-sm text-gray-600 mb-2">
                                 <span>Difficulty Level</span>
                                 <span>Mastery</span>
@@ -695,9 +884,8 @@
                             </div>
                         </div>
 
-
                         <!-- CTA Button -->
-                        <a href="tel:+3213200302" class="inline-block bg-red-maroon hover:bg-blue-800 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:-translate-y-1 text-center">
+                        <a href="tel:+13216629780" class="inline-block bg-red-maroon hover:bg-blue-800 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:-translate-y-1 text-center">
                             <i class="ri-phone-line mr-2"></i>
                             Call Now
                         </a>
@@ -717,7 +905,7 @@
                             Take our free placement test to determine your current English level and get personalized recommendations for your learning journey.
                         </p>
                         <div class="flex justify-center">
-                            <a href="tel:+3213200302" class="bg-secondary text-white px-8 py-3 rounded-2xl font-bold text-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 text-center">
+                            <a href="tel:+13216629780" class="bg-secondary text-white px-8 py-3 rounded-2xl font-bold text-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 text-center">
                                 <i class="ri-phone-line mr-2 text-base"></i>
                                 Call for Free Consultation
                             </a>
@@ -803,7 +991,7 @@
                         </div>
 
                         <!-- CTA Button -->
-                        <a href="tel:+3213200302" class="inline-block bg-red-maroon hover:bg-blue-800 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:-translate-y-1 text-center">
+                        <a href="tel:+13216629780" class="inline-block bg-red-maroon hover:bg-blue-800 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:-translate-y-1 text-center">
                             <i class="ri-phone-line mr-2"></i>
                             Call Now
                         </a>
@@ -864,7 +1052,7 @@
                         </div>
 
                         <!-- CTA Button -->
-                        <a href="tel:+3213200302" class="inline-block bg-red-maroon hover:bg-blue-800 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:-translate-y-1 text-center">
+                        <a href="tel:+13216629780" class="inline-block bg-red-maroon hover:bg-blue-800 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:-translate-y-1 text-center">
                             <i class="ri-phone-line mr-2"></i>
                             Call Now
                         </a>
@@ -925,7 +1113,7 @@
                         </div>
 
                         <!-- CTA Button -->
-                        <a href="tel:+3213200302" class="inline-block bg-red-maroon hover:bg-blue-800 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:-translate-y-1 text-center">
+                        <a href="tel:+13216629780" class="inline-block bg-red-maroon hover:bg-blue-800 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:-translate-y-1 text-center">
                             <i class="ri-phone-line mr-2"></i>
                             Call Now
                         </a>
@@ -950,7 +1138,7 @@
                         <div class="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-2 group-hover:scale-110 transition-transform duration-300">
                             <i class="ri-global-line text-3xl text-indigo-600"></i>
                     </div>
-                        <h4 class="text-xl font-bold text-gray-800 mb-1">Online & On-Campus</h4>
+                        <h4 class="text-xl font-bold text-gray-800 mb-1">Live Online & In-Person Classes</h4>
                         <p class="text-gray-600 text-sm">Flexible learning options to fit your schedule</p>
                 </div>
 
@@ -1024,7 +1212,7 @@
 
 
     <!-- Registration Section -->
-    <section class="py-16 bg-white">
+    <section id="registration" class="py-16 bg-white">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                 <!-- Left Content -->
@@ -1117,6 +1305,14 @@
                             </select>
                         </div>
 
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-1">Class Timing</label>
+                            <select name="classTime" class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300" required>
+                                <option value="">Select class timing</option>
+                                <option value="Day Classes">Day Classes</option>
+                                <option value="Night Classes">Night Classes</option>
+                            </select>
+                        </div>
 
                         <button type="submit" class="w-full bg-gradient-to-r from-primary to-secondary text-white py-3 px-6 rounded-lg font-semibold text-base hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5">
                             <i class="ri-send-plane-line mr-2"></i>
@@ -1144,11 +1340,15 @@
             <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
                 Join our community of happy learners and watch your child thrive in a nurturing, educational environment designed for their growth and development.
             </p>
-            <div class="flex justify-center">
-                <a href="tel:+3213200302" class="inline-block bg-secondary text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-secondary/90 transition duration-300 shadow-sm">
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="tel:+13216629780" class="inline-block bg-secondary text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-secondary/90 transition duration-300 shadow-sm">
                     <i class="ri-phone-line mr-2"></i>
                     Contact Us
                 </a>
+                <button onclick="openQuoteModal()" class="inline-block bg-red-maroon text-white px-8 py-4 rounded-lg text-lg font-semibold hover:opacity-90 transition duration-300 shadow-sm">
+                    <i class="ri-file-text-line mr-2"></i>
+                    Get Quote
+                </button>
             </div>
         </div>
     </section>
@@ -1201,7 +1401,7 @@
                     <div class="space-y-3">
                         <div class="flex items-center">
                             <i class="ri-phone-line text-primary mr-3"></i>
-                            <span>+1 (321) 320-0302</span>
+                            <span>+1 (321) 662-9780</span>
                         </div>
                         <div class="flex items-start">
                             <i class="ri-map-pin-line text-primary mr-3 mt-1"></i>
@@ -1240,6 +1440,29 @@
             </div>
         </div>
     </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <div class="relative group">
+            <!-- Chat Bubble -->
+            <div class="absolute bottom-full right-0 mb-3 bg-white text-gray-800 px-4 py-2 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                <div class="text-sm font-medium">Chat with us!</div>
+                <div class="absolute top-full right-4 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-white"></div>
+            </div>
+
+            <!-- Main WhatsApp Button -->
+            <a href="https://wa.me/13216629780?text=Hello%20AMF%20English%20School%2C%20I%20am%20interested%20in%20learning%20more%20about%20your%20English%20courses.%20Please%20provide%20me%20with%20detailed%20information%20about%20admission%20and%20class%20schedules." target="_blank"
+               class="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white w-16 h-16 rounded-full shadow-xl transition-all duration-300 transform hover:scale-110 hover:rotate-12 animate-bounce flex items-center justify-center">
+                <i class="fab fa-whatsapp text-2xl"></i>
+                <span class="sr-only">Chat on WhatsApp</span>
+            </a>
+
+            <!-- Notification Badge -->
+            <div class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-6 h-6 flex items-center justify-center font-bold animate-pulse">
+                1
+            </div>
+        </div>
+    </div>
 
     <script>
         // Mobile menu toggle
@@ -1308,6 +1531,77 @@
                 }
         });
 
+        // Quote Modal Functions
+        function openQuoteModal() {
+            document.getElementById('quoteModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function closeQuoteModal() {
+            document.getElementById('quoteModal').classList.add('hidden');
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+
+        // Close quote modal when clicking outside
+        document.getElementById('quoteModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeQuoteModal();
+            }
+        });
+
+        // Close quote modal with ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && !document.getElementById('quoteModal').classList.contains('hidden')) {
+                closeQuoteModal();
+            }
+        });
+
+        // Quote Form Submission to WhatsApp
+        function submitQuoteForm() {
+            // Get form values
+            const name = document.getElementById('quoteName').value;
+            const email = document.getElementById('quoteEmail').value;
+            const phone = document.getElementById('quotePhone').value;
+            const course = document.getElementById('quoteCourse').value;
+            const classTime = document.getElementById('quoteClassTime').value;
+            const message = document.getElementById('quoteMessage').value;
+
+            // Basic validation
+            if (!name || !email || !phone || !course || !classTime) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+
+            // Phone validation (basic)
+            const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
+            if (!phoneRegex.test(phone.replace(/[\s\-\(\)]/g, ''))) {
+                alert('Please enter a valid phone number.');
+                return;
+            }
+
+            // Create WhatsApp message
+            const whatsappMessage = `*Quote Request*%0A%0A*Name:* ${name}%0A*Email:* ${email}%0A*Phone:* ${phone}%0A*Course:* ${course}%0A*Class Time:* ${classTime}%0A*Message:* ${message || 'No additional message'}`;
+
+            // WhatsApp URL
+            const whatsappUrl = `https://wa.me/13216629780?text=${whatsappMessage}`;
+
+            // Open WhatsApp
+            window.open(whatsappUrl, '_blank');
+
+            // Close modal
+            closeQuoteModal();
+
+            // Reset form
+            document.getElementById('quoteForm').reset();
+        }
+
         // Registration Form Handling
         document.getElementById('registrationForm').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -1317,7 +1611,7 @@
             const data = Object.fromEntries(formData);
 
             // Basic validation
-            const requiredFields = ['firstName', 'lastName', 'email', 'phone', 'englishLevel', 'course', 'schedule'];
+            const requiredFields = ['firstName', 'lastName', 'email', 'phone', 'englishLevel', 'classTime'];
             let isValid = true;
             let firstInvalidField = null;
 
