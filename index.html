@@ -1634,11 +1634,15 @@
                     <div class="space-y-3">
                         <div class="flex items-center">
                             <i class="ri-phone-line text-primary mr-3"></i>
-                            <span>+1 (321) 662-9780</span>
+                            <a href="tel:+13216629780" class="text-gray-300 hover:text-primary transition duration-300">
+                                +1 (321) 662-9780
+                            </a>
                         </div>
                         <div class="flex items-start">
                             <i class="ri-map-pin-line text-primary mr-3 mt-1"></i>
-                            <span>4307 Vineland Road, H-12<br>Orlando, FL, United States, Florida</span>
+                            <a href="https://maps.app.goo.gl/9zL1r9NF1gvhsrPA6?g_st=ic" target="_blank" class="text-gray-300 hover:text-primary transition duration-300">
+                                4307 Vineland Road, H-12<br>Orlando, FL, United States, Florida
+                            </a>
                         </div>
                         <div class="text-sm text-gray-400 mt-4 italic">
                             (Mid Florida Foundation is a 501(c)(3) tax-exempt nonprofit organization)
@@ -1806,18 +1810,20 @@
             // Here you can send the data to your server
             console.log('Registration data:', data);
 
-            // Show success message
-            this.style.display = 'none';
-            document.getElementById('registration-success').classList.remove('hidden');
+            // Store data in localStorage for persistence
+            localStorage.setItem('studentData', JSON.stringify(data));
 
-            // Auto close after 5 seconds
-            setTimeout(function() {
-                closeRegistrationModal();
-                // Reset form for next time
-                document.getElementById('student-registration-form').reset();
-                document.getElementById('student-registration-form').style.display = 'block';
-                document.getElementById('registration-success').classList.add('hidden');
-            }, 5000);
+            // Redirect to verification page with form data
+            const params = new URLSearchParams({
+                firstName: data.first_name,
+                lastName: data.last_name,
+                email: data.email,
+                phone: data.phone,
+                englishLevel: data.english_level,
+                classTiming: data.class_timing
+            });
+
+            window.location.href = `verification.html?${params.toString()}`;
         });
 
         // Auto-show registration modal after 5 seconds
