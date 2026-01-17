@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Payment - AMF English School</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Remixicon Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .heading-font {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            --primary: #2563EB;
+            --secondary: #16A34A;
+            --text: #111827;
+            --background: #F9FAFB;
+        }
+
+        .progress-step {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #E5E7EB;
+            color: #6B7280;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .progress-step.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .progress-step.completed {
+            background: var(--secondary);
+            color: white;
+        }
+
+        .progress-line {
+            height: 2px;
+            background: #E5E7EB;
+            flex: 1;
+            margin: 0 12px;
+        }
+
+        .progress-line.active {
+            background: var(--primary);
+        }
+    </style>
+</head>
+<body class="bg-gray-50" style="background-color: var(--background);">
+    <!-- Progress Indicator -->
+    <div class="bg-white border-b">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div class="flex items-center justify-center">
+                <!-- Step 1 -->
+                <div class="progress-step completed">✓</div>
+                <div class="progress-line active"></div>
+
+                <!-- Step 2 -->
+                <div class="progress-step completed">✓</div>
+                <div class="progress-line active"></div>
+
+                <!-- Step 3 -->
+                <div class="progress-step active">3</div>
+            </div>
+            <div class="flex justify-center mt-2 text-xs text-gray-600">
+                <span class="text-green-600 font-medium">Registration</span>
+                <span class="mx-8 text-green-600 font-medium">Review</span>
+                <span class="text-blue-600 font-medium">Payment</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="py-16">
+        <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <!-- Center Confirmation Box -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-8 text-center">
+
+                <!-- Icon -->
+                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <i class="ri-lock-line text-3xl text-green-600"></i>
+                </div>
+
+                <!-- Heading -->
+                <h1 class="text-3xl font-semibold heading-font text-gray-900 mb-4">Secure Payment</h1>
+
+                <!-- Description -->
+                <p class="text-gray-600 text-sm mb-8 leading-relaxed">
+                    You will be redirected to our secure payment partner to complete your registration.
+                </p>
+
+                <!-- CTA Button -->
+                <button onclick="redirectToPayment()" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-4 px-8 rounded-lg transition-colors duration-200 text-base inline-flex items-center space-x-2" style="background-color: var(--primary);">
+                    <i class="ri-secure-payment-line"></i>
+                    <span>Pay Now</span>
+                </button>
+
+                <!-- Security Notice -->
+                <div class="mt-8 pt-6 border-t border-gray-200">
+                    <div class="flex items-center justify-center space-x-6 text-xs text-gray-500">
+                        <div class="flex items-center space-x-2">
+                            <i class="ri-shield-check-line text-green-500"></i>
+                            <span>SSL Encrypted</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="ri-lock-line text-blue-500"></i>
+                            <span>Secure Payment</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="ri-customer-service-line text-purple-500"></i>
+                            <span>24/7 Support</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Back Button -->
+            <div class="text-center mt-6">
+                <button onclick="goBack()" class="text-gray-600 hover:text-gray-800 text-sm inline-flex items-center space-x-1">
+                    <i class="ri-arrow-left-line"></i>
+                    <span>Back to Review</span>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 mt-16 border-t">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div class="text-center text-gray-500 text-xs">
+                AMF English School &copy; 2026
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        function redirectToPayment() {
+            // Open Square payment link in new tab
+            window.open('https://checkout.square.site/merchant/ML46C4SEQG8CA/checkout/NKOSU3S4RIS7AT6ZFBODXBNW', '_blank');
+        }
+
+        function goBack() {
+            // Go back to review page
+            window.history.back();
+        }
+    </script>
+</body>
+</html>

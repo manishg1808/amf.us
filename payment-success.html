@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Successful - AMF English School</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Remixicon Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .card {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Main Content -->
+    <main class="py-8">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <!-- Success Message -->
+            <div class="text-center mb-8">
+                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <i class="ri-check-double-line text-4xl text-green-600"></i>
+                </div>
+                <h1 class="text-3xl font-bold text-gray-900 mb-4">Payment Successful!</h1>
+                <p class="text-xl text-gray-600">Thank you for choosing AMF English School. Your registration is now complete.</p>
+            </div>
+
+            <!-- Registration Details -->
+            <div class="max-w-2xl mx-auto bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
+                <div class="flex items-center justify-between mb-6">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
+                            <i class="ri-check-line text-green-600"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-semibold text-gray-900">Registration Complete</h2>
+                            <p class="text-sm text-gray-600">Your details have been saved successfully</p>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-2xl font-bold text-indigo-600">Step 3 of 3</div>
+                        <div class="text-sm text-gray-500">Complete</div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                    <div><span class="text-gray-500">Registration ID:</span> <span class="font-medium ml-2" id="success-reg-id">-</span></div>
+                    <div><span class="text-gray-500">Date:</span> <span class="font-medium ml-2" id="success-reg-date">-</span></div>
+                    <div><span class="text-gray-500">Student:</span> <span class="font-medium ml-2" id="success-student-name">-</span></div>
+                </div>
+            </div>
+
+            <!-- Next Steps -->
+            <div class="max-w-2xl mx-auto bg-white rounded-lg shadow-sm border border-gray-200 p-8 mb-8">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6">What's Next?</h3>
+                <div class="space-y-6">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="ri-mail-line text-2xl text-blue-600"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold text-gray-800 mb-2">Email Confirmation</h4>
+                            <p class="text-gray-600">You'll receive a confirmation email within the next 24 hours with your course schedule and login details.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4">
+                        <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="ri-whatsapp-line text-green-600"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold text-gray-800 mb-2">WhatsApp Notification</h4>
+                            <p class="text-gray-600">We'll send you important updates and class reminders via WhatsApp.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4">
+                        <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="ri-calendar-line text-2xl text-purple-600"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold text-gray-800 mb-2">Class Schedule</h4>
+                            <p class="text-gray-600">Your first class details will be shared via email. Classes typically start within 3-5 business days.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4">
+                        <div class="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="ri-customer-service-line text-2xl text-orange-600"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold text-gray-800 mb-2">Support</h4>
+                            <p class="text-gray-600">Need help? Contact our support team at +1 (321) 662-9780 or email us anytime.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="max-w-2xl mx-auto flex flex-col sm:flex-row gap-4 justify-center">
+                <button onclick="goHome()" class="bg-gray-100 text-gray-700 font-semibold py-4 px-8 rounded-lg hover:bg-gray-200 transition-all duration-300 flex items-center justify-center space-x-3 text-lg">
+                    <i class="ri-home-line text-xl"></i>
+                    <span>Return to Home</span>
+                </button>
+                <a href="https://wa.me/13216629780?text=Hello%20AMF%20English%20School%2C%20I%20just%20completed%20my%20registration%20payment.%20Can%20you%20help%20me%20with%20next%20steps?" target="_blank" class="bg-green-500 text-white font-semibold py-4 px-8 rounded-lg hover:bg-green-600 transition-all duration-300 flex items-center justify-center space-x-3 text-lg">
+                    <i class="ri-whatsapp-line text-xl"></i>
+                    <span>Contact via WhatsApp</span>
+                </a>
+                <a href="tel:+13216629780" class="bg-primary text-white font-semibold py-4 px-8 rounded-lg hover:shadow-lg transition-all duration-300 flex items-center justify-center space-x-3 text-lg">
+                    <i class="ri-phone-line text-xl"></i>
+                    <span>Call Support</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- JavaScript -->
+    <script>
+        // Load payment success data
+        document.addEventListener('DOMContentLoaded', function() {
+            loadPaymentSuccessData();
+        });
+
+        function loadPaymentSuccessData() {
+            // Try to get data from sessionStorage (from review page)
+            const registrationData = sessionStorage.getItem('pendingRegistration');
+
+            if (registrationData) {
+                const data = JSON.parse(registrationData);
+
+                // Generate registration ID
+                const regId = 'AMF' + Date.now().toString().slice(-8);
+                document.getElementById('success-reg-id').textContent = regId;
+
+                // Set registration date
+                const today = new Date();
+                document.getElementById('success-reg-date').textContent = today.toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+
+                // Set student name
+                const fullName = (data.firstName || data.first_name || '') + ' ' + (data.lastName || data.last_name || '');
+                document.getElementById('success-student-name').textContent = fullName.trim();
+
+                // Clear the pending registration data
+                sessionStorage.removeItem('pendingRegistration');
+
+                // Store completed registration for admin reference
+                const completedReg = {
+                    ...data,
+                    registrationId: regId,
+                    paymentDate: today.toISOString(),
+                    status: 'completed'
+                };
+                localStorage.setItem('completedRegistration_' + regId, JSON.stringify(completedReg));
+
+            } else {
+                // If no data, generate generic confirmation
+                document.getElementById('success-reg-id').textContent = 'AMF' + Date.now().toString().slice(-8);
+                document.getElementById('success-reg-date').textContent = new Date().toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+                document.getElementById('success-student-name').textContent = 'Student';
+            }
+        }
+
+        function goHome() {
+            // Go back to home page
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>

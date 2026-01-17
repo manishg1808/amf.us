@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Your Registration - AMF English School</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Remixicon Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .heading-font {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            --primary: #2563EB;
+            --secondary: #16A34A;
+            --text: #111827;
+            --background: #F9FAFB;
+        }
+
+        .text-primary { color: var(--primary); }
+
+        .progress-step {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #E5E7EB;
+            color: #6B7280;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .progress-step.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .progress-step.completed {
+            background: var(--secondary);
+            color: white;
+        }
+
+        .progress-line {
+            height: 2px;
+            background: #E5E7EB;
+            flex: 1;
+            margin: 0 12px;
+        }
+
+        .progress-line.active {
+            background: var(--primary);
+        }
+
+        /* Parallax background */
+        .parallax-bg {
+            background-image: url('assest/logo1.jpg');
+            background-size: contain;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.05;
+            filter: blur(0.5px) grayscale(20%);
+        }
+
+        /* Content overlay for better readability */
+        .content-overlay {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Ensure footer is visible and properly positioned */
+        footer {
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Fix logo cursor and hover behavior */
+        header img {
+            cursor: default !important;
+            pointer-events: none !important;
+        }
+
+        header .flex.items-center {
+            cursor: default !important;
+        }
+    </style>
+</head>
+<body class="bg-gray-50" style="background-color: var(--background);">
+    <!-- Parallax Background -->
+    <div class="parallax-bg"></div>
+
+    <!-- Progress Indicator -->
+    <div class="bg-white border-b content-overlay">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div class="flex items-center justify-center">
+                <!-- Step 1 -->
+                <div class="progress-step completed">✓</div>
+                <div class="progress-line active"></div>
+
+                <!-- Step 2 -->
+                <div class="progress-step active">2</div>
+                <div class="progress-line"></div>
+
+                <!-- Step 3 -->
+                <div class="progress-step">3</div>
+            </div>
+            <div class="flex justify-center mt-2 text-xs text-gray-600">
+                <span class="text-green-600 font-medium">Registration</span>
+                <span class="mx-8 text-blue-600 font-medium">Review</span>
+                <span class="text-gray-400">Payment</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header with Logo -->
+    <header class="bg-white shadow-sm border-b content-overlay">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-3">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <div class="flex items-center space-x-2">
+                        <i class="ri-graduation-cap-line text-2xl text-blue-600"></i>
+                        <img src="assest/logo1.jpg" alt="AMF English School Logo" class="h-10 md:h-12 w-auto">
+                    </div>
+                </div>
+                <a href="index.html" class="text-gray-600 hover:text-gray-800 text-sm">
+                    <i class="ri-arrow-left-line mr-1"></i>Back to Home
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="py-8">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <!-- Review Card -->
+            <div class="max-w-2xl mx-auto bg-white rounded-xl shadow-sm border border-gray-200 p-8 relative content-overlay">
+
+                <!-- Print Icon -->
+                <button onclick="printPage()" class="absolute top-4 right-4 w-8 h-8 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:text-gray-800 transition-colors duration-200" title="Print Details">
+                    <i class="ri-printer-line text-sm"></i>
+                </button>
+
+                <!-- Card Header -->
+                <div class="text-center mb-8">
+                    <h1 class="text-2xl font-semibold heading-font text-gray-900 mb-2">Review Your Details</h1>
+                    <p class="text-gray-600 text-sm">Please confirm the information before payment.</p>
+                </div>
+
+                <!-- Simple Data Table -->
+                <div class="bg-white rounded-lg border border-gray-200 overflow-hidden mb-6">
+                    <table class="w-full">
+                        <tbody class="divide-y divide-gray-200">
+                            <tr class="bg-gray-50">
+                                <td class="px-6 py-4 text-sm font-semibold text-gray-900">Full Name</td>
+                                <td class="px-6 py-4 text-sm text-gray-900" id="review-firstName">-</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 text-sm font-semibold text-gray-900 bg-gray-50">Email Address</td>
+                                <td class="px-6 py-4 text-sm text-gray-900" id="review-email">-</td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <td class="px-6 py-4 text-sm font-semibold text-gray-900">Phone Number</td>
+                                <td class="px-6 py-4 text-sm text-gray-900" id="review-phone">-</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 text-sm font-semibold text-gray-900 bg-gray-50">English Level</td>
+                                <td class="px-6 py-4 text-sm text-gray-900" id="review-englishLevel">-</td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <td class="px-6 py-4 text-sm font-semibold text-gray-900">Class Timing</td>
+                                <td class="px-6 py-4 text-sm text-gray-900" id="review-classTime">-</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 text-sm font-semibold text-gray-900 bg-gray-50 align-top">Address</td>
+                                <td class="px-6 py-4 text-sm text-gray-900" id="review-address">-</td>
+                            </tr>
+                            <tr id="message-section" class="bg-gray-50 hidden">
+                                <td class="px-6 py-4 text-sm font-semibold text-gray-900 align-top">Message</td>
+                                <td class="px-6 py-4 text-sm text-gray-900" id="review-message">-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4 mt-8">
+                    <button onclick="editDetails()" class="flex-1 border-2 border-gray-300 text-gray-700 font-medium py-3 px-6 rounded-lg hover:bg-gray-50 transition-colors duration-200 text-sm">
+                        Edit Details
+                    </button>
+                    <a href="https://checkout.square.site/merchant/ML46C4SEQG8CA/checkout/NKOSU3S4RIS7AT6ZFBODXBNW" target="_blank" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-200 text-sm text-center" style="background-color: var(--primary);">
+                        Proceed to Payment
+                    </a>
+                </div>
+            </div>
+
+            <!-- Post-Payment Action -->
+            <div id="post-payment-section" class="mt-4 hidden max-w-2xl mx-auto">
+                <div class="bg-indigo-50 border border-indigo-200 rounded-lg p-4 text-center content-overlay">
+                    <p class="text-indigo-800 text-sm mb-3">Payment page opened in new tab. Complete your payment and click below.</p>
+                    <a href="payment-success.html" class="bg-indigo-600 text-white font-medium py-2 px-4 rounded-lg hover:bg-indigo-700 transition-colors duration-200 text-sm inline-block">
+                        Continue to Confirmation
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact" class="relative text-white py-16" style="background-image: url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1920&h=1080&fit=crop'); background-size: cover; background-position: center; background-attachment: fixed;">
+        <!-- Dark Overlay for Readability -->
+        <div class="absolute inset-0 bg-black bg-opacity-70"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+                <!-- About -->
+                <div>
+                    <div class="mb-4">
+                        <img src="assest/logo1.jpg" alt="KIDS SCHOOL Logo" class="h-16 w-auto">
+                    </div>
+                    <p class="text-gray-300 mb-4">
+                        Empowering young minds with quality education, creativity, and confidence for a brighter future.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/people/AMF-English-School/100084678438110/" target="_blank" class="text-gray-300 hover:text-primary transition duration-300">
+                            <i class="ri-facebook-fill text-xl"></i>
+                        </a>
+                        <a href="https://www.instagram.com/amfenglishschool/" target="_blank" class="text-gray-300 hover:text-primary transition duration-300">
+                            <i class="ri-instagram-fill text-xl"></i>
+                        </a>
+                        <a href="https://wa.me/13216629780" target="_blank" class="text-gray-300 hover:text-green-500 transition duration-300">
+                            <i class="ri-whatsapp-line text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-primary transition duration-300">
+                            <i class="ri-youtube-fill text-xl"></i>
+                        </a>
+                    </div>
+                    <div class="mt-3">
+                        <a href="tel:+13216629780" class="text-gray-300 hover:text-primary transition duration-300 flex items-center">
+                            <i class="ri-phone-line mr-2"></i>
+                            +1 (321) 662-9780
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html#home" class="text-gray-300 hover:text-primary transition duration-300">Home</a></li>
+                        <li><a href="index.html#about" class="text-gray-300 hover:text-primary transition duration-300">About</a></li>
+                        <li><a href="index.html#classes" class="text-gray-300 hover:text-primary transition duration-300">Classes</a></li>
+                        <li><a href="index.html#courses" class="text-gray-300 hover:text-primary transition duration-300">Courses</a></li>
+                        <li><a href="index.html#registration" class="text-gray-300 hover:text-primary transition duration-300">Registration</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
+                    <div class="space-y-3">
+                        <div class="flex items-center">
+                            <i class="ri-phone-line text-primary mr-3"></i>
+                            <a href="tel:+13216629780" class="text-gray-300 hover:text-primary transition duration-300">
+                                +1 (321) 662-9780
+                            </a>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="ri-map-pin-line text-primary mr-3 mt-1"></i>
+                            <a href="https://maps.app.goo.gl/9zL1r9NF1gvhsrPA6?g_st=ic" target="_blank" class="text-gray-300 hover:text-primary transition duration-300">
+                                4307 Vineland Road, H-12<br>Orlando, FL, United States, Florida
+                            </a>
+                        </div>
+                        <div class="text-sm text-gray-400 mt-4 italic">
+                            (Mid Florida Foundation is a 501(c)(3) tax-exempt nonprofit organization)
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hours -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Operating Hours</h4>
+                    <div class="space-y-2">
+                        <div class="flex justify-between">
+                            <span>Monday - Friday:</span>
+                            <span>8:00 AM - 5:00 PM</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Saturday:</span>
+                            <span>Closed</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Sunday:</span>
+                            <span>Closed</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-600 mt-12 pt-8 text-center">
+                <p class="text-gray-300">
+                    &copy; 2025 KIDS SCHOOL - AMF English School. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top & WhatsApp Floating Buttons -->
+    <div class="fixed bottom-6 right-6 z-[9999] space-y-8 pointer-events-none">
+        <!-- Scroll to Top Button -->
+        <div id="scrollToTopBtn" class="relative group opacity-100 translate-y-0 transition-all duration-300 pointer-events-auto">
+            <button onclick="scrollToTop()"
+                    class="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white w-12 h-12 rounded-full shadow-xl transition-all duration-300 transform hover:scale-110 flex items-center justify-center group-hover:shadow-2xl">
+                <i class="ri-arrow-up-line text-xl group-hover:animate-bounce"></i>
+                <span class="sr-only">Scroll to Top</span>
+            </button>
+
+            <!-- Tooltip for Scroll to Top -->
+            <div class="absolute bottom-full right-0 mb-3 bg-white text-gray-800 px-3 py-2 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 break-words sm:whitespace-nowrap text-sm font-medium">
+                Back to Top
+                <div class="absolute top-full right-4 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-white"></div>
+            </div>
+        </div>
+
+        <!-- WhatsApp Button -->
+        <div class="relative group pointer-events-auto">
+            <!-- Chat Bubble -->
+            <div class="absolute bottom-full right-0 mb-3 bg-white text-gray-800 px-4 py-2 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 break-words sm:whitespace-nowrap">
+                <div class="text-sm font-medium">Chat with us!</div>
+                <div class="absolute top-full right-4 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-white"></div>
+            </div>
+
+            <!-- Main WhatsApp Button -->
+            <a href="https://wa.me/13216629780?text=Hello%20AMF%20English%20School%2C%20I%20am%20interested%20in%20learning%20more%20about%20your%20English%20courses.%20Please%20provide%20me%20with%20detailed%20information%20about%20admission%20and%20class%20schedules." target="_blank"
+               class="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white w-16 h-16 rounded-full shadow-xl transition-all duration-300 transform hover:scale-110 hover:rotate-12 animate-bounce flex items-center justify-center">
+                <i class="ri-whatsapp-line text-2xl"></i>
+                <span class="sr-only">Chat on WhatsApp</span>
+            </a>
+
+            <!-- Notification Badge -->
+            <div class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-6 h-6 flex items-center justify-center font-bold animate-pulse">
+                1
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Load and display registration data
+        document.addEventListener('DOMContentLoaded', function() {
+            loadRegistrationData();
+        });
+
+        function loadRegistrationData() {
+            // Try to get data from URL parameters first, then from localStorage
+            const urlParams = new URLSearchParams(window.location.search);
+            let registrationData = null;
+
+            // Check URL parameters
+            if (urlParams.has('data')) {
+                try {
+                    registrationData = JSON.parse(decodeURIComponent(urlParams.get('data')));
+                } catch (e) {
+                    console.error('Error parsing registration data:', e);
+                }
+            }
+
+            // If no URL data, try localStorage
+            if (!registrationData) {
+                const storedData = localStorage.getItem('registrationData');
+                if (storedData) {
+                    registrationData = JSON.parse(storedData);
+                }
+            }
+
+            if (registrationData) {
+                displayRegistrationData(registrationData);
+            } else {
+                // Show error message if no data found
+                alert('No registration data found. Please complete the registration form first.');
+                window.location.href = 'index.html';
+            }
+        }
+
+        function displayRegistrationData(data) {
+            // Personal Information - Handle both naming conventions
+            const firstName = data.firstName || data.first_name || '';
+            const lastName = data.lastName || data.last_name || '';
+            const fullName = (firstName + ' ' + lastName).trim() || '-';
+
+            document.getElementById('review-firstName').textContent = fullName;
+            document.getElementById('review-email').textContent = data.email || '-';
+            document.getElementById('review-phone').textContent = data.phone || '-';
+
+            // Course Information
+            document.getElementById('review-englishLevel').textContent = formatEnglishLevel(data.englishLevel || data.english_level) || '-';
+            document.getElementById('review-classTime').textContent = formatClassTime(data.classTime || data.class_timing) || '-';
+
+            // Address
+            document.getElementById('review-address').textContent = data.address || '-';
+
+            // Message (show only if exists and not empty)
+            if (data.message && data.message.trim()) {
+                document.getElementById('review-message').textContent = data.message;
+                document.getElementById('message-section').classList.remove('hidden');
+            } else {
+                document.getElementById('message-section').classList.add('hidden');
+            }
+        }
+
+        function formatEnglishLevel(level) {
+            const levels = {
+                'beginner': 'Beginner (A1)',
+                'elementary': 'Elementary (A2)',
+                'intermediate': 'Intermediate (B1)',
+                'upper-intermediate': 'Upper Intermediate (B2)',
+                'advanced': 'Advanced (C1)',
+                'proficient': 'Proficient (C2)',
+                'not-sure': 'Not Sure'
+            };
+            return levels[level] || level;
+        }
+
+        function formatClassTime(time) {
+            const times = {
+                'Day Classes': 'Day Classes',
+                'Night Classes': 'Night Classes',
+                'day': 'Day Classes',
+                'night': 'Night Classes',
+                'morning': 'Morning (9:00 AM - 11:00 AM)',
+                'afternoon': 'Afternoon (2:00 PM - 4:00 PM)',
+                'evening': 'Evening (6:00 PM - 8:00 PM)',
+                'weekend': 'Weekend (Saturday/Sunday)'
+            };
+            return times[time] || time;
+        }
+
+        function editDetails() {
+            // Clear stored data and go back to registration form
+            localStorage.removeItem('registrationData');
+            window.location.href = 'index.html#registration';
+        }
+
+        // Scroll to Top functionality
+        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+        // Show/hide scroll to top button based on scroll position
+        window.addEventListener('scroll', () => {
+            const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (scrollY > 200) { // Show after scrolling 200px
+                scrollToTopBtn.classList.remove('opacity-0', 'translate-y-4');
+                scrollToTopBtn.classList.add('opacity-100', 'translate-y-0');
+            } else {
+                scrollToTopBtn.classList.remove('opacity-100', 'translate-y-0');
+                scrollToTopBtn.classList.add('opacity-0', 'translate-y-4');
+            }
+        });
+
+        // Scroll to top function
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Print functionality
+        function printPage() {
+            // Hide the progress indicator and buttons for printing
+            const progressIndicator = document.querySelector('.bg-white.border-b');
+            const actionButtons = document.querySelector('.flex.flex-col.sm\\:flex-row.gap-4');
+            const footer = document.querySelector('footer');
+
+            if (progressIndicator) progressIndicator.style.display = 'none';
+            if (actionButtons) actionButtons.style.display = 'none';
+            if (footer) footer.style.display = 'none';
+
+            // Print the page
+            window.print();
+
+            // Show the hidden elements again after printing
+            setTimeout(() => {
+                if (progressIndicator) progressIndicator.style.display = '';
+                if (actionButtons) actionButtons.style.display = '';
+                if (footer) footer.style.display = '';
+            }, 100);
+        }
+    </script>
+</body>
+</html>
