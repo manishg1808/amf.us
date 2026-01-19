@@ -2,8 +2,9 @@
 
 *A comprehensive educational website with advanced registration system, payment integration, and automated business notifications.*
 
-[![Live Demo](https://img.shields.io/badge/Live-Demo-blue)](http://localhost:8000)
-[![Version](https://img.shields.io/badge/Version-2.0-green)]()
+[![Live Demo] (https://amf-us.vercel.app/)
+
+[![Version](https://img.shields.io/badge/Version-2.1-green)]()
 [![License](https://img.shields.io/badge/License-MIT-yellow)]()
 
 ---
@@ -40,8 +41,10 @@ AMF English School is a comprehensive educational website featuring:
 - **Secure Payment Integration** via Square payment gateway
 - **Automated WhatsApp Notifications** for business management
 - **Professional Receipt Generation** with print functionality
-- **Responsive Design** optimized for all devices
-- **Modern UI/UX** with clean, professional aesthetics
+- **Responsive Design** optimized for all devices with enhanced mobile UX
+- **Modern UI/UX** with clean, professional aesthetics and gradient designs
+- **Enhanced Course Cards** with proper AMF branding and CEFR level indicators
+- **Improved Form Experience** with standardized course level options
 
 ### 🎯 Mission
 To provide AMF English School with a modern, professional online presence that streamlines student registration, payment processing, and business communication through automated systems.
@@ -404,8 +407,8 @@ d:\complete project\total tech all code wok\amf 2\
 ### 🎨 Color Palette
 ```css
 :root {
-  --primary: #2563EB;      /* Blue - Primary actions */
-  --secondary: #16A34A;    /* Green - Success states */
+  --primary: #A52A2A;      /* Dark Red/Brown - Primary actions */
+  --secondary: #1E3A8A;    /* Dark Blue - Secondary elements */
   --accent: #F59E0B;       /* Amber - Highlights */
   --text: #111827;         /* Dark Gray - Text */
   --background: #F9FAFB;   /* Light Gray - Background */
@@ -647,6 +650,53 @@ Open index.html directly (limited functionality)
 
 ---
 
+## 🆕 Recent Updates (January 2026)
+
+### 🎨 UI/UX Improvements
+
+#### ✨ Course Cards Enhancement (January 19, 2026)
+- **AMF Logo Repositioning**: Moved AMF branding from center to top-left corner of all course cards
+- **Level Badges Adjustment**: Repositioned course level badges (A1, B1, C1) for better balance
+- **Improved Spacing**: Optimized positioning with better margins and alignment
+- **Enhanced Visual Hierarchy**: Cleaner card layout with proper element positioning
+
+#### 📱 Mobile Responsiveness Fixes (January 19, 2026)
+- **CTA Button Centering**: Fixed "Contact Us" button text centering issues on mobile devices
+- **Button Layout**: Improved button responsiveness with proper flex alignment
+- **Text Alignment**: Ensured perfect centering of icons and text in mobile view
+
+#### 🎯 Interactive Elements Enhancement (January 19, 2026)
+- **Enroll Button Styling**: Updated banner enroll button to use primary-secondary gradient
+- **Color Consistency**: Applied website's brand colors (`primary: #A52A2A`, `secondary: #1E3A8A`)
+- **Hover Effects**: Enhanced button interactions with improved shadow effects
+
+#### 📝 Form Improvements (January 19, 2026)
+- **Course Level Options**: Updated "Interested Course" dropdown with CEFR framework levels:
+  - Beginner (A1)
+  - Elementary (A2)
+  - Intermediate (B1)
+  - Upper Intermediate (B2)
+  - Advanced (C1)
+  - Proficient (C2)
+  - Not sure
+  - others
+- **Form Consistency**: Applied same options to both contact and quote forms
+- **Better UX**: More precise course level selection for users
+
+### 🔧 Technical Updates
+
+#### 🎨 Design System Consistency
+- **Color Palette Usage**: Consistent application of primary/secondary gradients
+- **Component Alignment**: Better positioning of UI elements across all sections
+- **Responsive Design**: Improved mobile experience with proper text centering
+
+#### 📱 Mobile Optimization
+- **Button Centering**: Fixed flex alignment issues on small screens
+- **Touch Targets**: Better button sizing for mobile interaction
+- **Text Readability**: Improved text centering and spacing
+
+---
+
 ## 🔧 Customization Guide
 
 ### 🎨 Changing Colors
@@ -741,20 +791,22 @@ Update in all HTML files:
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 **Built with ❤️ for AMF English School**
-*Complete registration and payment solution - January 2025*
+*Complete registration and payment solution - Updated January 2026*
 
 ---
 
 ## 🎯 Project Success Metrics
 
-- ✅ **100% Mobile Responsive** - Perfect on all devices
+- ✅ **100% Mobile Responsive** - Perfect on all devices with fixed button centering
 - ✅ **Secure Payment Processing** - PCI compliant gateway
 - ✅ **Automated Business Operations** - WhatsApp integration
-- ✅ **Professional UI/UX** - Modern, clean design
+- ✅ **Professional UI/UX** - Modern, clean design with enhanced gradients
 - ✅ **Complete User Journey** - Registration to confirmation
 - ✅ **Print & Receipt System** - Professional documentation
 - ✅ **Performance Optimized** - Fast loading and interactions
 - ✅ **Cross-browser Compatible** - Works on all modern browsers
+- ✅ **Enhanced Course Cards** - Improved AMF branding and level badge positioning
+- ✅ **CEFR Framework Integration** - Professional course level options (A1-C2)
 
 ---
 
