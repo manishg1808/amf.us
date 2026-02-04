@@ -211,19 +211,9 @@
                     <button onclick="editDetails()" class="flex-1 border-2 border-gray-300 text-gray-700 font-medium py-3 px-6 rounded-lg hover:bg-gray-50 transition-colors duration-200 text-sm">
                         Edit Details
                     </button>
-                    <a href="https://checkout.square.site/merchant/ML46C4SEQG8CA/checkout/NKOSU3S4RIS7AT6ZFBODXBNW" target="_blank" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-200 text-sm text-center" style="background-color: var(--primary);">
+                    <button type="button" id="proceed-to-payment-btn" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-200 text-sm text-center disabled:opacity-70 disabled:cursor-not-allowed" style="background-color: var(--primary);">
                         Proceed to Payment
-                    </a>
-                </div>
-            </div>
-
-            <!-- Post-Payment Action -->
-            <div id="post-payment-section" class="mt-4 hidden max-w-2xl mx-auto">
-                <div class="bg-indigo-50 border border-indigo-200 rounded-lg p-4 text-center content-overlay">
-                    <p class="text-indigo-800 text-sm mb-3">Payment page opened in new tab. Complete your payment and click below.</p>
-                    <a href="payment-success.html" class="bg-indigo-600 text-white font-medium py-2 px-4 rounded-lg hover:bg-indigo-700 transition-colors duration-200 text-sm inline-block">
-                        Continue to Confirmation
-                    </a>
+                    </button>
                 </div>
             </div>
         </div>
@@ -368,9 +358,15 @@
 
     <!-- JavaScript -->
     <script>
+        // Store registration data globally so "Proceed to Payment" can send it via Web3Forms
+        let currentRegistrationData = null;
+        const PAYMENT_URL = 'https://checkout.square.site/merchant/ML46C4SEQG8CA/checkout/NKOSU3S4RIS7AT6ZFBODXBNW';
+        const WEB3FORMS_ACCESS_KEY = '057b0a27-1455-4954-9b24-2376a637c735';
+
         // Load and display registration data
         document.addEventListener('DOMContentLoaded', function() {
             loadRegistrationData();
+            initProceedToPayment();
         });
 
         function loadRegistrationData() {
@@ -396,12 +392,80 @@
             }
 
             if (registrationData) {
+                currentRegistrationData = registrationData;
                 displayRegistrationData(registrationData);
             } else {
                 // Show error message if no data found
                 alert('No registration data found. Please complete the registration form first.');
                 window.location.href = 'index.html';
             }
+        }
+
+        function initProceedToPayment() {
+            const submitBtn = document.getElementById('proceed-to-payment-btn');
+            if (!submitBtn) return;
+
+            submitBtn.addEventListener('click', async function() {
+                if (!currentRegistrationData) {
+                    alert('No registration data found. Please complete the registration form first.');
+                    return;
+                }
+
+                const originalText = submitBtn.textContent;
+                submitBtn.textContent = 'Sending...';
+                submitBtn.disabled = true;
+
+                const formData = new FormData();
+                formData.append('access_key', WEB3FORMS_ACCESS_KEY);
+                formData.append('subject', 'New Registration - Proceed to Payment | AMF English School');
+
+                // Map registration data to form fields (match index form names + readable labels in email)
+                const firstName = currentRegistrationData.firstName || currentRegistrationData.first_name || '';
+                const lastName = currentRegistrationData.lastName || currentRegistrationData.last_name || '';
+                formData.append('First Name', firstName);
+                formData.append('Last Name', lastName);
+                formData.append('Email', currentRegistrationData.email || '');
+                formData.append('Phone', currentRegistrationData.phone || '');
+                formData.append('English Level', formatEnglishLevel(currentRegistrationData.englishLevel || currentRegistrationData.english_level) || '');
+                formData.append('Class Timing', formatClassTime(currentRegistrationData.classTime || currentRegistrationData.class_timing) || '');
+                formData.append('Address', currentRegistrationData.address || '');
+                formData.append('Message', currentRegistrationData.message || '');
+
+                // Optional: single body for email template
+                const emailBody = [
+                    'Full Name: ' + (firstName + ' ' + lastName).trim(),
+                    'Email: ' + (currentRegistrationData.email || ''),
+                    'Phone: ' + (currentRegistrationData.phone || ''),
+                    'English Level: ' + (formatEnglishLevel(currentRegistrationData.englishLevel || currentRegistrationData.english_level) || ''),
+                    'Class Timing: ' + (formatClassTime(currentRegistrationData.classTime || currentRegistrationData.class_timing) || ''),
+                    'Address: ' + (currentRegistrationData.address || ''),
+                    'Message: ' + (currentRegistrationData.message || '')
+                ].join('\n');
+                formData.append('Registration Details', emailBody);
+
+                try {
+                    const response = await fetch('https://api.web3forms.com/submit', {
+                        method: 'POST',
+                        body: formData
+                    });
+
+                    const data = await response.json();
+
+                    if (response.ok && data.success) {
+                        // Save registration data for payment-success page (second email)
+                        sessionStorage.setItem('pendingRegistration', JSON.stringify(currentRegistrationData));
+                        alert('Details sent successfully! Opening payment page...');
+                        window.open(PAYMENT_URL, '_blank');
+                    } else {
+                        alert('Error sending details: ' + (data.message || 'Please try again.'));
+                    }
+                } catch (error) {
+                    alert('Something went wrong. Please check your connection and try again.');
+                } finally {
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                }
+            });
         }
 
         function displayRegistrationData(data) {
